@@ -25,11 +25,8 @@
     --border: #ddd5c8;
     --red-soft: #c94f3a;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
-
   body {
     font-family: 'DM Sans', sans-serif;
     background: var(--warm-white);
@@ -37,7 +34,6 @@
     line-height: 1.65;
     font-size: 16px;
   }
-
   /* ── NAV ── */
   nav {
     background: var(--navy);
@@ -69,7 +65,47 @@
     letter-spacing: 0.02em;
   }
   .nav-links a:hover { color: white; background: rgba(255,255,255,0.1); }
-
+ 
+  /* ── HAMBURGER ── */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px 4px;
+  }
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: rgba(255,255,255,0.8);
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+  /* ── MOBILE MENU ── */
+  .mobile-menu {
+    display: none;
+    background: var(--navy);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    position: sticky;
+    top: 56px;
+    z-index: 99;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    padding: 0.85rem 1.5rem;
+    font-size: 0.92rem;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-family: 'DM Sans', sans-serif;
+  }
+  .mobile-menu a:hover { color: white; background: rgba(255,255,255,0.05); }
+ 
   /* ── HERO ── */
   .hero {
     background: var(--navy);
@@ -133,8 +169,14 @@
     font-size: 0.8rem;
     text-decoration: none;
     transition: all 0.2s;
+    cursor: pointer;
   }
   .lang-tag:hover { background: rgba(255,255,255,0.18); color: white; }
+  .lang-tag.active-lang {
+    background: rgba(232,168,56,0.25);
+    color: var(--amber-light);
+    border-color: rgba(232,168,56,0.4);
+  }
   .hero-buttons { display: flex; flex-wrap: wrap; gap: 0.75rem; }
   .btn-primary {
     background: var(--amber);
@@ -161,7 +203,6 @@
     display: inline-block;
   }
   .btn-secondary:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.07); }
-
   /* ── DISCLAIMER BANNER ── */
   .disclaimer {
     background: #fff8ec;
@@ -171,7 +212,6 @@
     font-size: 0.78rem;
     color: #7a5a20;
   }
-
   /* ── SECTIONS ── */
   section { padding: 4rem 1.5rem; }
   section:nth-child(even) { background: var(--cream); }
@@ -197,7 +237,6 @@
     margin-bottom: 2.5rem;
     font-size: 0.97rem;
   }
-
   /* ── CHECKLIST ── */
   .checklist-days { display: flex; flex-direction: column; gap: 2rem; }
   .day-block {}
@@ -240,7 +279,6 @@
   .checklist li a { color: var(--teal); font-weight: 500; }
   .checklist li a:hover { color: var(--navy); }
   .checklist li strong { color: var(--navy); }
-
   /* ── DECISION TREE ── */
   .decision-grid {
     display: grid;
@@ -290,7 +328,6 @@
     font-size: 0.75rem;
     color: var(--text-muted);
   }
-
   /* ── MICRO-GUIDES ── */
   .guides-grid {
     display: grid;
@@ -351,7 +388,6 @@
     letter-spacing: 0.02em;
   }
   .guide-toggle:hover { background: var(--cream); }
-
   /* ── DIRECTORY ── */
   .directory-filters {
     display: flex; flex-wrap: wrap; gap: 0.5rem;
@@ -427,7 +463,6 @@
   .dir-meta span { display: flex; align-items: flex-start; gap: 0.35rem; }
   .dir-meta .mi { font-size: 0.8rem; flex-shrink: 0; opacity: 0.6; }
   .dir-card[data-cat].hidden { display: none; }
-
   /* ── OFFICIAL GUIDES ── */
   .guides-list { display: flex; flex-direction: column; gap: 1rem; }
   .guide-link-card {
@@ -453,7 +488,6 @@
   }
   .guide-link-text h3 { font-size: 0.93rem; font-weight: 600; color: var(--navy); }
   .guide-link-text p { font-size: 0.82rem; color: var(--text-muted); margin-top: 0.15rem; }
-
   /* ── FOOTER ── */
   footer {
     background: var(--navy);
@@ -465,16 +499,15 @@
   footer strong { color: rgba(255,255,255,0.85); }
   footer a { color: var(--amber-light); }
   footer p + p { margin-top: 0.5rem; }
-
   /* ── UTIL ── */
   .verified-date {
     font-size: 0.72rem;
     color: var(--text-muted);
     margin-top: 0.5rem;
   }
-
   @media (max-width: 640px) {
     .nav-links { display: none; }
+    .hamburger { display: flex; }
     .decision-grid { grid-template-columns: 1fr 1fr; }
     .guides-grid { grid-template-columns: 1fr; }
     .dir-grid { grid-template-columns: 1fr; }
@@ -482,7 +515,6 @@
 </style>
 </head>
 <body>
-
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
@@ -494,9 +526,19 @@
       <li><a href="#directory">Directory</a></li>
       <li><a href="#official">Official Guides</a></li>
     </ul>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
-
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#start-here" onclick="closeMenu()">Start Here</a>
+  <a href="#get-help" onclick="closeMenu()">Get Help</a>
+  <a href="#guides" onclick="closeMenu()">Guides</a>
+  <a href="#directory" onclick="closeMenu()">Directory</a>
+  <a href="#official" onclick="closeMenu()">Official Guides</a>
+</div>
 <!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
@@ -504,13 +546,13 @@
     <h1>Welcome to<br><em>Baltimore.</em><br>Here's where to start.</h1>
     <p>A task-first guide for newcomers, refugees, SIV holders, and new Americans in Baltimore City and Baltimore County. This site does not replace official guides — it helps you use them.</p>
     <div class="hero-langs">
-      <span>Available in:</span>
-      <a class="lang-tag" href="#">English</a>
-      <a class="lang-tag" href="#">دری</a>
-      <a class="lang-tag" href="#">پښتو</a>
-      <a class="lang-tag" href="#">Español</a>
-      <a class="lang-tag" href="#">العربية</a>
-      <a class="lang-tag" href="#">Français</a>
+      <span>Read in:</span>
+      <a class="lang-tag active-lang" href="#" onclick="setLang('en');return false;">English</a>
+      <a class="lang-tag" href="#" onclick="setLang('fa');return false;">دری</a>
+      <a class="lang-tag" href="#" onclick="setLang('ps');return false;">پښتو</a>
+      <a class="lang-tag" href="#" onclick="setLang('es');return false;">Español</a>
+      <a class="lang-tag" href="#" onclick="setLang('ar');return false;">العربية</a>
+      <a class="lang-tag" href="#" onclick="setLang('fr');return false;">Français</a>
     </div>
     <div class="hero-buttons">
       <a href="#start-here" class="btn-primary">→ Start Here</a>
@@ -518,21 +560,17 @@
     </div>
   </div>
 </div>
-
 <!-- DISCLAIMER -->
 <div class="disclaimer">
   ◆ <strong>Informational only.</strong> Not legal advice. Services and eligibility change — always verify with the official agency directly. Last reviewed: March 2026.
 </div>
-
 <!-- START HERE: FIRST WEEK CHECKLIST -->
 <section id="start-here">
   <div class="section-inner">
     <div class="section-label">First 30 Days</div>
     <h2>Your First 30 Days in Baltimore</h2>
     <p class="section-intro">Do these in order. Each item links to the official source. If you need help in your language, call <strong>211</strong> — free, 24/7, available in 150+ languages.</p>
-
     <div class="checklist-days">
-
       <div class="day-block">
         <div class="day-label">◈ Day 1 — Arrive &amp; Connect</div>
         <ul class="checklist">
@@ -541,7 +579,6 @@
           <li><div class="icon">3</div><div>If you don't have a phone yet, go to the <strong>Enoch Pratt Free Library</strong> — free wifi, computers, and no ID required. Nearest branch: <a href="https://www.prattlibrary.org" target="_blank">prattlibrary.org</a></div></li>
         </ul>
       </div>
-
       <div class="day-block">
         <div class="day-label">◈ Days 2–3 — Documents &amp; Benefits</div>
         <ul class="checklist">
@@ -550,7 +587,6 @@
           <li><div class="icon">6</div><div>If you have children, start school enrollment — contact Baltimore City Schools MESC or Baltimore County Welcome Center. See <a href="#guides">micro-guide below</a>.</div></li>
         </ul>
       </div>
-
       <div class="day-block">
         <div class="day-label">◈ Days 4–7 — Get Settled</div>
         <ul class="checklist">
@@ -560,7 +596,6 @@
           <li><div class="icon">10</div><div>Look for <strong>employment services</strong>. Your resettlement agency has job readiness, resume help, and job search support. American Job Centers also available — see directory.</div></li>
         </ul>
       </div>
-
       <div class="day-block">
         <div class="day-label">◈ Week 2 — Build Stability</div>
         <ul class="checklist">
@@ -570,7 +605,6 @@
           <li><div class="icon">14</div><div>Get a <strong>library card</strong> at Enoch Pratt — free, just bring your address. Unlocks free ebooks, language learning apps (Mango Languages), and computer time. → <a href="https://www.prattlibrary.org/get-a-card" target="_blank">prattlibrary.org/get-a-card</a></div></li>
         </ul>
       </div>
-
       <div class="day-block">
         <div class="day-label">◈ Weeks 3–4 — Move Forward</div>
         <ul class="checklist">
@@ -580,19 +614,16 @@
           <li><div class="icon">18</div><div>If you need legal help with your immigration status, contact <strong>PAIR Project</strong> or <strong>CLINIC</strong>-affiliated organizations in Baltimore. Ask your caseworker for a current referral — free legal services are available for eligible newcomers.</div></li>
         </ul>
       </div>
-
     </div>
     <p class="verified-date">Sources: Baltimore City Welcome Guide (2023), MORA program pages, 211 Maryland, BCCC RAP. Last verified March 2026.</p>
   </div>
 </section>
-
 <!-- GET HELP NOW: DECISION TREE -->
 <section id="get-help">
   <div class="section-inner">
     <div class="section-label">Decision Tree</div>
     <h2>Who Do I Call?</h2>
     <p class="section-intro">Not sure which number to use? Use this chart. Translation is available for all of these — just say "interpreter" or the name of your language when someone answers.</p>
-
     <div class="decision-grid">
       <div class="decision-card red">
         <div class="decision-number">911</div>
@@ -606,7 +637,6 @@
           <li>Medical emergency</li>
         </ul>
       </div>
-
       <div class="decision-card blue">
         <div class="decision-number">211</div>
         <h3>Benefits &amp; Referrals</h3>
@@ -619,7 +649,6 @@
           <li>Mental health crisis support</li>
         </ul>
       </div>
-
       <div class="decision-card green">
         <div class="decision-number">311</div>
         <h3>Baltimore City Services</h3>
@@ -631,7 +660,6 @@
           <li>City staff won't provide interpreter — you have the right to request one at no cost</li>
         </ul>
       </div>
-
       <div class="decision-card amber">
         <div class="decision-number">✦</div>
         <h3>School Enrollment</h3>
@@ -644,23 +672,19 @@
         </ul>
       </div>
     </div>
-
     <div style="margin-top:1.5rem; background:white; border:1px solid var(--border); border-radius:10px; padding:1.1rem 1.25rem;">
       <strong style="font-size:0.9rem; color:var(--navy);">🔒 Know Your Rights: Language Access</strong>
       <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.4rem;">Baltimore City staff are required to provide telephonic interpretation at no cost. If a city employee refuses to provide an interpreter, call <strong>311</strong> to file a complaint. You have this right.</p>
     </div>
   </div>
 </section>
-
 <!-- MICRO-GUIDES -->
 <section id="guides">
   <div class="section-inner">
     <div class="section-label">How-To Guides</div>
     <h2>Step-by-Step for Common Tasks</h2>
     <p class="section-intro">Click any guide to expand the steps. Every step links to an official source. Items marked <span style="background:#fff8ec;color:#7a5a20;font-size:0.75rem;font-weight:600;border:1px solid #f0ddb0;border-radius:4px;padding:0.1rem 0.4rem;">VERIFY</span> should be confirmed directly with the agency before you go.</p>
-
     <div class="guides-grid">
-
       <!-- Transit -->
       <div class="guide-card">
         <div class="guide-card-header">
@@ -678,7 +702,6 @@
           </ol>
         </div>
       </div>
-
       <!-- School - City -->
       <div class="guide-card">
         <div class="guide-card-header">
@@ -696,7 +719,6 @@
           </ol>
         </div>
       </div>
-
       <!-- School - County -->
       <div class="guide-card">
         <div class="guide-card-header">
@@ -714,7 +736,6 @@
           </ol>
         </div>
       </div>
-
       <!-- Refugee Health -->
       <div class="guide-card">
         <div class="guide-card-header">
@@ -733,7 +754,6 @@
           </ol>
         </div>
       </div>
-
       <!-- ESL -->
       <div class="guide-card">
         <div class="guide-card-header">
@@ -752,7 +772,6 @@
           </ol>
         </div>
       </div>
-
       <!-- Internet/Phone -->
       <div class="guide-card">
         <div class="guide-card-header">
@@ -770,7 +789,6 @@
           </ol>
         </div>
       </div>
-
       <!-- Scam Avoidance -->
       <div class="guide-card">
         <div class="guide-card-header">
@@ -788,7 +806,6 @@
           </ol>
         </div>
       </div>
-
       <!-- Housing Search -->
       <div class="guide-card">
         <div class="guide-card-header">
@@ -807,18 +824,15 @@
           </ol>
         </div>
       </div>
-
     </div>
   </div>
 </section>
-
 <!-- DIRECTORY -->
 <section id="directory">
   <div class="section-inner">
     <div class="section-label">Verified Directory</div>
     <h2>Key Organizations in Baltimore</h2>
     <p class="section-intro">Curated from official sources. Addresses verified where possible — always call ahead. For a deeper search, use <a href="https://www.charmcare.org" target="_blank">CHARMcare.org</a>.</p>
-
     <div class="directory-filters">
       <button class="filter-btn active" onclick="filterDir(this, 'all')">All</button>
       <button class="filter-btn" onclick="filterDir(this, 'services')">Resettlement</button>
@@ -829,9 +843,7 @@
       <button class="filter-btn" onclick="filterDir(this, 'benefits')">Benefits</button>
       <button class="filter-btn" onclick="filterDir(this, 'digital')">Digital Access</button>
     </div>
-
     <div class="dir-grid" id="dirGrid">
-
       <div class="dir-card" data-cat="services">
         <div class="dir-card-top"><h3>IRC Baltimore</h3><span class="dir-tag tag-services">Resettlement</span></div>
         <div class="dir-desc">International Rescue Committee — refugee resettlement and integration services for Baltimore metro.</div>
@@ -840,7 +852,6 @@
           <span><span class="mi">🔗</span> <a href="https://www.rescue.org/united-states/baltimore-md" target="_blank">rescue.org/united-states/baltimore-md</a></span>
         </div>
       </div>
-
       <div class="dir-card" data-cat="services">
         <div class="dir-card-top"><h3>LSSNCA Refugee &amp; Immigrant Services</h3><span class="dir-tag tag-services">Resettlement</span></div>
         <div class="dir-desc">Lutheran Social Services — case management, mental health, and workforce support for refugees and SIV holders.</div>
@@ -849,7 +860,6 @@
           <span><span class="mi">🔗</span> <a href="https://lssnca.org/programs/refugee-and-immigrant-services/refugee-immigrant.html" target="_blank">lssnca.org</a></span>
         </div>
       </div>
-
       <div class="dir-card" data-cat="services">
         <div class="dir-card-top"><h3>Baltimore City Mayor's Office of Immigrant Affairs</h3><span class="dir-tag tag-services">City Office</span></div>
         <div class="dir-desc">Publishes the official Baltimore newcomer guide and connects immigrants to city resources.</div>
@@ -858,7 +868,6 @@
           <span><span class="mi">🔗</span> <a href="https://www.baltimorecity.gov/mima" target="_blank">baltimorecity.gov/mima</a></span>
         </div>
       </div>
-
       <div class="dir-card" data-cat="benefits">
         <div class="dir-card-top"><h3>MORA — Maryland Office for Refugees &amp; Asylees</h3><span class="dir-tag tag-benefits">Benefits</span></div>
         <div class="dir-desc">State office that sets eligibility for refugee programs: employment services, ELT, health screening, cash assistance. Most programs limited to first 5 years of eligible status.</div>
@@ -866,7 +875,6 @@
           <span><span class="mi">🔗</span> <a href="https://dhs.maryland.gov/maryland-office-for-refugees-and-asylees/" target="_blank">dhs.maryland.gov — MORA</a></span>
         </div>
       </div>
-
       <div class="dir-card" data-cat="benefits">
         <div class="dir-card-top"><h3>211 Maryland</h3><span class="dir-tag tag-benefits">Referrals</span></div>
         <div class="dir-desc">24/7 statewide helpline. Translation in 150+ languages. Food, housing, health, legal, education referrals. Best first call for newcomers.</div>
@@ -875,7 +883,6 @@
           <span><span class="mi">🔗</span> <a href="https://211md.org/resources/new-to-the-us-and-maryland/" target="_blank">211md.org</a></span>
         </div>
       </div>
-
       <div class="dir-card" data-cat="health">
         <div class="dir-card-top"><h3>Baltimore Medical System — Refugee Health</h3><span class="dir-tag tag-health">Health</span></div>
         <div class="dir-desc">Refugee health screening and ongoing primary care. Main MORA-listed Baltimore health access point.</div>
@@ -884,7 +891,6 @@
           <span><span class="mi">🔗</span> <a href="https://bmsi.org/our-programs/the-refugee-health-program/" target="_blank">bmsi.org</a></span>
         </div>
       </div>
-
       <div class="dir-card" data-cat="health">
         <div class="dir-card-top"><h3>Healthcare Access Maryland</h3><span class="dir-tag tag-health">Health</span></div>
         <div class="dir-desc">Helps apply for subsidized health insurance and provides care coordination.</div>
@@ -893,7 +899,6 @@
           <span><span class="mi">🔗</span> <a href="https://www.marylandconnects.org" target="_blank">marylandconnects.org</a></span>
         </div>
       </div>
-
       <div class="dir-card" data-cat="health">
         <div class="dir-card-top"><h3>Health Care for the Homeless</h3><span class="dir-tag tag-health">Health</span></div>
         <div class="dir-desc">Medical care, mental health, dental, and wraparound supports. Good option if uninsured or without stable housing.</div>
@@ -901,7 +906,6 @@
           <span><span class="mi">📍</span> 421 Fallsway, Baltimore, MD 21202</span>
         </div>
       </div>
-
       <div class="dir-card" data-cat="education">
         <div class="dir-card-top"><h3>Baltimore City Schools MESC</h3><span class="dir-tag tag-education">Education</span></div>
         <div class="dir-desc">Multilingual Enrollment and Support Center — school enrollment, ESL placement, and support for newly arrived families in Baltimore City.</div>
@@ -910,7 +914,6 @@
           <span><span class="mi">🔗</span> <a href="https://www.baltimorecityschools.org/enroll" target="_blank">baltimorecityschools.org/enroll</a></span>
         </div>
       </div>
-
       <div class="dir-card" data-cat="education">
         <div class="dir-card-top"><h3>BCPS Multilingual Welcome Center</h3><span class="dir-tag tag-education">Education</span></div>
         <div class="dir-desc">Baltimore County school enrollment and language support for newly arrived families.</div>
@@ -919,7 +922,6 @@
           <span><span class="mi">🔗</span> <a href="https://www.bcps.org/curriculum/programsandoptions/multilingual_achievement/welcome_center" target="_blank">bcps.org — Welcome Center</a></span>
         </div>
       </div>
-
       <div class="dir-card" data-cat="education">
         <div class="dir-card-top"><h3>BCCC Refugee Assistance Program (RAP)</h3><span class="dir-tag tag-education">ESL</span></div>
         <div class="dir-desc">Baltimore City Community College — MORA-funded English language training and refugee support services.</div>
@@ -927,7 +929,6 @@
           <span><span class="mi">🔗</span> <a href="https://www.bccc.edu/academics/english-language-services-basic-skills/refugee-assistance-program-rap" target="_blank">bccc.edu — RAP</a></span>
         </div>
       </div>
-
       <div class="dir-card" data-cat="education">
         <div class="dir-card-top"><h3>Enoch Pratt Free Library</h3><span class="dir-tag tag-education">ESL / Access</span></div>
         <div class="dir-desc">Free ESL classes, free wifi, computers, and a social worker on site. No agency affiliation needed. Open to all.</div>
@@ -935,7 +936,6 @@
           <span><span class="mi">🔗</span> <a href="https://www.prattlibrary.org" target="_blank">prattlibrary.org</a> — find your nearest branch</span>
         </div>
       </div>
-
       <div class="dir-card" data-cat="education">
         <div class="dir-card-top"><h3>CASA Baltimore ESOL</h3><span class="dir-tag tag-education">ESL</span></div>
         <div class="dir-desc">ESOL classes and community services through the Baltimore Welcome Center.</div>
@@ -944,7 +944,6 @@
           <span><span class="mi">🔗</span> <a href="https://wearecasa.org/esol-classes-in-baltimore/" target="_blank">wearecasa.org</a></span>
         </div>
       </div>
-
       <div class="dir-card" data-cat="employment">
         <div class="dir-card-top"><h3>American Job Centers — Baltimore City</h3><span class="dir-tag tag-employment">Employment</span></div>
         <div class="dir-desc">Career center support, job search, and employment services. Three locations in Baltimore City.</div>
@@ -953,7 +952,6 @@
           <span><span class="mi">🔗</span> <a href="https://labor.maryland.gov/county/bacity/" target="_blank">labor.maryland.gov</a></span>
         </div>
       </div>
-
       <div class="dir-card" data-cat="housing">
         <div class="dir-card-top"><h3>MDHousingSearch.org</h3><span class="dir-tag tag-housing">Housing</span></div>
         <div class="dir-desc">Free online housing locator for Maryland with bilingual call center support. Start here for apartment searching.</div>
@@ -961,7 +959,6 @@
           <span><span class="mi">🔗</span> <a href="https://www.mdhousingsearch.org" target="_blank">mdhousingsearch.org</a></span>
         </div>
       </div>
-
       <div class="dir-card" data-cat="housing">
         <div class="dir-card-top"><h3>Southeast CDC — Housing Counseling</h3><span class="dir-tag tag-housing">Housing</span></div>
         <div class="dir-desc">HUD-certified housing counseling for Baltimore City renters and homebuyers. Includes eviction prevention and rental counseling.</div>
@@ -970,7 +967,6 @@
           <span><span class="mi">🔗</span> <a href="https://www.southeastcdc.org/housing-counseling/" target="_blank">southeastcdc.org</a></span>
         </div>
       </div>
-
       <div class="dir-card" data-cat="digital">
         <div class="dir-card-top"><h3>Project Waves</h3><span class="dir-tag tag-digital">Internet</span></div>
         <div class="dir-desc">Free high-speed home internet for households in select Baltimore City buildings.</div>
@@ -978,7 +974,6 @@
           <span><span class="mi">🔗</span> <a href="https://www.projectwaves.net/waves-home-internet" target="_blank">projectwaves.net</a></span>
         </div>
       </div>
-
       <div class="dir-card" data-cat="digital">
         <div class="dir-card-top"><h3>PCs for People — Baltimore</h3><span class="dir-tag tag-digital">Internet</span></div>
         <div class="dir-desc">Low-cost high-speed internet and refurbished computers for income-qualifying households.</div>
@@ -987,20 +982,16 @@
           <span><span class="mi">🔗</span> <a href="https://www.pcsforpeople.org/locations/baltimore/" target="_blank">pcsforpeople.org</a></span>
         </div>
       </div>
-
     </div>
-
     <p class="verified-date" style="margin-top:1.25rem;">Note: VERIFY addresses before visiting — they change. When in doubt, call ahead or check the organization's official website.</p>
   </div>
 </section>
-
 <!-- OFFICIAL GUIDES -->
 <section id="official">
   <div class="section-inner">
     <div class="section-label">Official Sources</div>
     <h2>Official Guides &amp; Resources</h2>
     <p class="section-intro">This site is a companion — not a replacement. These are the authoritative sources. Go here for full information.</p>
-
     <div class="guides-list">
       <a class="guide-link-card" href="https://www.baltimorecity.gov/mima/welcome-to-baltimore-guide/download" target="_blank">
         <div class="guide-link-icon">PDF</div>
@@ -1041,15 +1032,13 @@
     </div>
   </div>
 </section>
-
 <!-- FOOTER -->
 <footer>
   <p><strong>Baltimore Newcomer QuickStart</strong> — A companion to official resources. Not affiliated with any government agency.</p>
   <p>Informational only. Not legal advice. Services and eligibility change — verify with agencies directly before acting.</p>
-  <p>To report an outdated link or incorrect information, contact us. Last reviewed: March 2026.</p>
+  <p>To report an outdated link or incorrect information, email <a href="mailto:1031M.Talha@gmail.com">1031M.Talha@gmail.com</a>. Last reviewed: March 2026.</p>
   <p style="margin-top:1rem;">Built for the Afghan SIV and newcomer community in Baltimore City &amp; County.</p>
 </footer>
-
 <script>
   function toggleGuide(btn) {
     const steps = btn.nextElementSibling;
@@ -1057,7 +1046,7 @@
     steps.classList.toggle('open', !isOpen);
     btn.textContent = isOpen ? 'Show steps ↓' : 'Hide steps ↑';
   }
-
+ 
   function filterDir(btn, cat) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
@@ -1068,6 +1057,43 @@
         card.classList.add('hidden');
       }
     });
+  }
+ 
+  function toggleMenu() {
+    var menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('open');
+  }
+ 
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
+ 
+  function setLang(lang) {
+    // Update active state on lang tags
+    document.querySelectorAll('.lang-tag').forEach(t => t.classList.remove('active-lang'));
+    event.target.classList.add('active-lang');
+ 
+    if (lang === 'en') {
+      // Remove translation — reload without googtrans cookie
+      document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + location.hostname;
+      document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.' + location.hostname;
+      location.reload();
+      return;
+    }
+ 
+    // Try using the Google Translate widget dropdown directly
+    var select = document.querySelector('.goog-te-combo');
+    if (select) {
+      select.value = lang;
+      select.dispatchEvent(new Event('change'));
+      return;
+    }
+ 
+    // Fallback: set cookie and reload
+    document.cookie = 'googtrans=/en/' + lang + '; path=/';
+    document.cookie = 'googtrans=/en/' + lang + '; path=/; domain=.' + location.hostname;
+    location.reload();
   }
 </script>
 <div id="google_translate_element" style="position:fixed;bottom:1.5rem;right:1.5rem;z-index:999;background:white;border-radius:8px;padding:0.4rem 0.7rem;box-shadow:0 2px 12px rgba(0,0,0,0.15);border:1px solid #ddd;"></div>
@@ -1084,3 +1110,4 @@ function googleTranslateElementInit() {
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
+ 
