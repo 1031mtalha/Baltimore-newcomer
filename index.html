@@ -65,7 +65,7 @@
     letter-spacing: 0.02em;
   }
   .nav-links a:hover { color: white; background: rgba(255,255,255,0.1); }
- 
+
   /* ── HAMBURGER ── */
   .hamburger {
     display: none;
@@ -105,7 +105,7 @@
     font-family: 'DM Sans', sans-serif;
   }
   .mobile-menu a:hover { color: white; background: rgba(255,255,255,0.05); }
- 
+
   /* ── HERO ── */
   .hero {
     background: var(--navy);
@@ -608,7 +608,7 @@
       <div class="day-block">
         <div class="day-label">◈ Weeks 3–4 — Move Forward</div>
         <ul class="checklist">
-          <li><div class="icon">15</div><div>Attend your first <strong>English class</strong> if you haven't started yet. BCCC Refugee and Asylum Programs offers MORA-funded ELT (free for eligible newcomers). → <a href="https://www.bccc.edu/rap" target="_blank">bccc.edu/rap</a></div></li>
+          <li><div class="icon">15</div><div>Attend your first <strong>English class</strong> if you haven't started yet. BCCC Refugee and Asylum Programs offers MORA-funded ELT (free for eligible newcomers). → <a href="https://www.bccc.edu/academics/english-language-services-basic-skills/refugee-assistance-program-rap" target="_blank">bccc.edu — RAP</a></div></li>
           <li><div class="icon">16</div><div>If you are working with a caseworker, confirm your <strong>90-day plan</strong> — most resettlement contracts run 90 days and include employment goals, housing stability, and benefit enrollment. Know what yours covers.</div></li>
           <li><div class="icon">17</div><div>Connect with a <strong>community or cultural organization</strong> in Baltimore. For Afghan newcomers: The Salaam Center (410-385-4663) and ERICA serve Afghan and MENA communities. See directory below.</div></li>
           <li><div class="icon">18</div><div>If you need legal help with your immigration status, contact <strong>PAIR Project</strong> or <strong>CLINIC</strong>-affiliated organizations in Baltimore. Ask your caseworker for a current referral — free legal services are available for eligible newcomers.</div></li>
@@ -896,7 +896,7 @@
         <div class="dir-desc">Helps apply for subsidized health insurance and provides care coordination.</div>
         <div class="dir-meta">
           <span><span class="mi">📍</span> 1 N Charles St, Suite 900, Baltimore, MD 21202</span>
-          <span><span class="mi">🔗</span> <a href="https://www.marylandconnects.org" target="_blank">marylandconnects.org</a></span>
+          <span><span class="mi">🔗</span> <a href="https://www.healthcareaccessmaryland.org" target="_blank">marylandconnects.org</a></span>
         </div>
       </div>
       <div class="dir-card" data-cat="health">
@@ -1046,7 +1046,7 @@
     steps.classList.toggle('open', !isOpen);
     btn.textContent = isOpen ? 'Show steps ↓' : 'Hide steps ↑';
   }
- 
+
   function filterDir(btn, cat) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
@@ -1058,21 +1058,21 @@
       }
     });
   }
- 
+
   function toggleMenu() {
     var menu = document.getElementById('mobileMenu');
     menu.classList.toggle('open');
   }
- 
+
   function closeMenu() {
     document.getElementById('mobileMenu').classList.remove('open');
   }
- 
+
   function setLang(lang) {
     // Update active state on lang tags
     document.querySelectorAll('.lang-tag').forEach(t => t.classList.remove('active-lang'));
     event.target.classList.add('active-lang');
- 
+
     if (lang === 'en') {
       // Remove translation — reload without googtrans cookie
       document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
@@ -1081,7 +1081,7 @@
       location.reload();
       return;
     }
- 
+
     // Try using the Google Translate widget dropdown directly
     var select = document.querySelector('.goog-te-combo');
     if (select) {
@@ -1089,7 +1089,7 @@
       select.dispatchEvent(new Event('change'));
       return;
     }
- 
+
     // Fallback: set cookie and reload
     document.cookie = 'googtrans=/en/' + lang + '; path=/';
     document.cookie = 'googtrans=/en/' + lang + '; path=/; domain=.' + location.hostname;
@@ -1110,4 +1110,3 @@ function googleTranslateElementInit() {
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
- 
