@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Baltimore Newcomer QuickStart — Refugee & Newcomer Guide for Baltimore</title>
+<title>Baltimore Newcomer QuickStart: Refugee and Newcomer Guide for Baltimore</title>
 <meta name="description" content="A task-first guide for refugees, SIV holders, and new Americans in Baltimore City and County. First-week checklist, emergency numbers, transit, school enrollment, and verified directory.">
 <meta name="keywords" content="Baltimore newcomer guide, refugee resources Baltimore, Afghan SIV Baltimore, Baltimore immigrant resources, MORA Maryland, school enrollment Baltimore">
 <meta property="og:title" content="Baltimore Newcomer QuickStart">
@@ -34,7 +34,6 @@
     line-height: 1.65;
     font-size: 16px;
   }
-  /* ── NAV ── */
   nav {
     background: var(--navy);
     position: sticky; top: 0; z-index: 100;
@@ -65,8 +64,6 @@
     letter-spacing: 0.02em;
   }
   .nav-links a:hover { color: white; background: rgba(255,255,255,0.1); }
-
-  /* ── HAMBURGER ── */
   .hamburger {
     display: none;
     flex-direction: column;
@@ -84,7 +81,6 @@
     border-radius: 2px;
     transition: all 0.2s;
   }
-  /* ── MOBILE MENU ── */
   .mobile-menu {
     display: none;
     background: var(--navy);
@@ -105,8 +101,6 @@
     font-family: 'DM Sans', sans-serif;
   }
   .mobile-menu a:hover { color: white; background: rgba(255,255,255,0.05); }
-
-  /* ── HERO ── */
   .hero {
     background: var(--navy);
     color: white;
@@ -203,7 +197,6 @@
     display: inline-block;
   }
   .btn-secondary:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.07); }
-  /* ── DISCLAIMER BANNER ── */
   .disclaimer {
     background: #fff8ec;
     border-bottom: 1px solid #f0ddb0;
@@ -212,7 +205,6 @@
     font-size: 0.78rem;
     color: #7a5a20;
   }
-  /* ── SECTIONS ── */
   section { padding: 4rem 1.5rem; }
   section:nth-child(even) { background: var(--cream); }
   .section-inner { max-width: 900px; margin: 0 auto; }
@@ -237,7 +229,6 @@
     margin-bottom: 2.5rem;
     font-size: 0.97rem;
   }
-  /* ── CHECKLIST ── */
   .checklist-days { display: flex; flex-direction: column; gap: 2rem; }
   .day-block {}
   .day-label {
@@ -279,7 +270,6 @@
   .checklist li a { color: var(--teal); font-weight: 500; }
   .checklist li a:hover { color: var(--navy); }
   .checklist li strong { color: var(--navy); }
-  /* ── DECISION TREE ── */
   .decision-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -328,7 +318,6 @@
     font-size: 0.75rem;
     color: var(--text-muted);
   }
-  /* ── MICRO-GUIDES ── */
   .guides-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -388,7 +377,6 @@
     letter-spacing: 0.02em;
   }
   .guide-toggle:hover { background: var(--cream); }
-  /* ── DIRECTORY ── */
   .directory-filters {
     display: flex; flex-wrap: wrap; gap: 0.5rem;
     margin-bottom: 1.5rem;
@@ -463,7 +451,6 @@
   .dir-meta span { display: flex; align-items: flex-start; gap: 0.35rem; }
   .dir-meta .mi { font-size: 0.8rem; flex-shrink: 0; opacity: 0.6; }
   .dir-card[data-cat].hidden { display: none; }
-  /* ── OFFICIAL GUIDES ── */
   .guides-list { display: flex; flex-direction: column; gap: 1rem; }
   .guide-link-card {
     background: white;
@@ -488,7 +475,6 @@
   }
   .guide-link-text h3 { font-size: 0.93rem; font-weight: 600; color: var(--navy); }
   .guide-link-text p { font-size: 0.82rem; color: var(--text-muted); margin-top: 0.15rem; }
-  /* ── FOOTER ── */
   footer {
     background: var(--navy);
     color: rgba(255,255,255,0.55);
@@ -499,7 +485,6 @@
   footer strong { color: rgba(255,255,255,0.85); }
   footer a { color: var(--amber-light); }
   footer p + p { margin-top: 0.5rem; }
-  /* ── UTIL ── */
   .verified-date {
     font-size: 0.72rem;
     color: var(--text-muted);
@@ -515,7 +500,6 @@
 </style>
 </head>
 <body>
-<!-- NAV -->
 <nav>
   <div class="nav-inner">
     <a href="#" class="nav-logo">Baltimore QuickStart</a>
@@ -531,7 +515,6 @@
     </button>
   </div>
 </nav>
-<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="#start-here" onclick="closeMenu()">Start Here</a>
   <a href="#get-help" onclick="closeMenu()">Get Help</a>
@@ -539,12 +522,11 @@
   <a href="#directory" onclick="closeMenu()">Directory</a>
   <a href="#official" onclick="closeMenu()">Official Guides</a>
 </div>
-<!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-label">Companion to Official Resources</div>
     <h1>Welcome to<br><em>Baltimore.</em><br>Here's where to start.</h1>
-    <p>A task-first guide for newcomers, refugees, SIV holders, and new Americans in Baltimore City and Baltimore County. This site does not replace official guides — it helps you use them.</p>
+    <p>A task-first guide for newcomers, refugees, SIV holders, and new Americans in Baltimore City and Baltimore County. This site does not replace official guides. It helps you use them.</p>
     <div class="hero-langs">
       <span>Read in:</span>
       <a class="lang-tag active-lang" href="#" onclick="setLang('en');return false;">English</a>
@@ -560,70 +542,67 @@
     </div>
   </div>
 </div>
-<!-- DISCLAIMER -->
 <div class="disclaimer">
-  ◆ <strong>Informational only.</strong> Not legal advice. Services and eligibility change — always verify with the official agency directly. Last reviewed: March 2026.
+  ◆ <strong>Informational only.</strong> Not legal advice. Services and eligibility change. Always verify with the official agency directly. Last reviewed: March 2026.
 </div>
-<!-- START HERE: FIRST WEEK CHECKLIST -->
 <section id="start-here">
   <div class="section-inner">
     <div class="section-label">First 30 Days</div>
     <h2>Your First 30 Days in Baltimore</h2>
-    <p class="section-intro">Do these in order. Each item links to the official source. If you need help in your language, call <strong>211</strong> — free, 24/7, available in 150+ languages.</p>
+    <p class="section-intro">Do these in order. Each item links to the official source. If you need help in your language, call <strong>211</strong>, free and available 24/7 in 150+ languages.</p>
     <div class="checklist-days">
       <div class="day-block">
-        <div class="day-label">◈ Day 1 — Arrive &amp; Connect</div>
+        <div class="day-label">◈ Day 1: Arrive and Connect</div>
         <ul class="checklist">
           <li><div class="icon">1</div><div>Save these numbers now: <strong>911</strong> (emergency), <strong>211</strong> (benefits &amp; referrals), <strong>311</strong> (Baltimore City services). Details in the <a href="#get-help">Get Help Now</a> section below.</div></li>
-          <li><div class="icon">2</div><div>If you are a refugee or SIV holder, contact your <strong>resettlement agency</strong> — <a href="https://www.rescue.org/united-states/baltimore-md" target="_blank">IRC Baltimore</a> (2601 N Howard St, Suite 225) or <a href="https://lssnca.org/programs/refugee-and-immigrant-services/refugee-immigrant.html" target="_blank">LSSNCA</a>. They are your first point of contact for almost everything.</div></li>
-          <li><div class="icon">3</div><div>If you don't have a phone yet, go to the <strong>Enoch Pratt Free Library</strong> — free wifi, computers, and no ID required. Nearest branch: <a href="https://www.prattlibrary.org" target="_blank">prattlibrary.org</a></div></li>
+          <li><div class="icon">2</div><div>If you are a refugee or SIV holder, contact your <strong>resettlement agency</strong>: <a href="https://www.rescue.org/united-states/baltimore-md" target="_blank">IRC Baltimore</a> (2601 N Howard St, Suite 225) or <a href="https://lssnca.org/programs/refugee-and-immigrant-services/refugee-immigrant.html" target="_blank">LSSNCA</a>. They are your first point of contact for almost everything.</div></li>
+          <li><div class="icon">3</div><div>If you don't have a phone yet, go to the <strong>Enoch Pratt Free Library</strong> with free wifi, computers, and no ID required. Nearest branch: <a href="https://www.prattlibrary.org" target="_blank">prattlibrary.org</a></div></li>
         </ul>
       </div>
       <div class="day-block">
-        <div class="day-label">◈ Days 2–3 — Documents &amp; Benefits</div>
+        <div class="day-label">◈ Days 2 to 3: Documents and Benefits</div>
         <ul class="checklist">
           <li><div class="icon">4</div><div>Check your <strong>eligibility for state benefits</strong> through MORA (Maryland Office for Refugees and Asylees). Most programs require eligible status held for 5 years or less. → <a href="https://dhs.maryland.gov/maryland-office-for-refugees-and-asylees/who-is-eligible-for-benefits/" target="_blank">MORA eligibility page</a></div></li>
           <li><div class="icon">5</div><div>Schedule your <strong>refugee health screening</strong> at Baltimore Medical System Highlandtown Clinic: 3700 Fleet Street, Suite 200. → <a href="https://bmsi.org/our-programs/the-refugee-health-program/" target="_blank">BMS Refugee Health</a></div></li>
-          <li><div class="icon">6</div><div>If you have children, start school enrollment — contact Baltimore City Schools MESC or Baltimore County Welcome Center. See <a href="#guides">micro-guide below</a>.</div></li>
+          <li><div class="icon">6</div><div>If you have children, start school enrollment. Contact Baltimore City Schools MESC or Baltimore County Welcome Center. See <a href="#guides">micro-guide below</a>.</div></li>
         </ul>
       </div>
       <div class="day-block">
-        <div class="day-label">◈ Days 4–7 — Get Settled</div>
+        <div class="day-label">◈ Days 4 to 7: Get Settled</div>
         <ul class="checklist">
-          <li><div class="icon">7</div><div>Learn how to ride <strong>Baltimore MTA</strong> — trip planner at <a href="https://www.mta.maryland.gov/trip-planner" target="_blank">mta.maryland.gov/trip-planner</a>. Pay with <strong>CharmPass</strong> (CharmCard is being phased out). See transit guide below.</div></li>
+          <li><div class="icon">7</div><div>Learn how to ride <strong>Baltimore MTA</strong>. Use the trip planner at <a href="https://www.mta.maryland.gov/trip-planner" target="_blank">mta.maryland.gov/trip-planner</a>. Pay with <strong>CharmPass</strong> (CharmCard is being phased out). See transit guide below.</div></li>
           <li><div class="icon">8</div><div>Get <strong>free or low-cost internet</strong> at home. Ask your caseworker about <a href="https://www.projectwaves.net" target="_blank">Project Waves</a> (free home wifi, select Baltimore buildings) or <a href="https://www.pcsforpeople.org/locations/baltimore/" target="_blank">PCs for People</a> (low-cost internet + computers).</div></li>
           <li><div class="icon">9</div><div>Start <strong>English classes</strong>. If newly arrived, ask your caseworker. Walk-in option: Enoch Pratt Library has free ESL classes. See ESL guide below.</div></li>
-          <li><div class="icon">10</div><div>Look for <strong>employment services</strong>. Your resettlement agency has job readiness, resume help, and job search support. American Job Centers also available — see directory.</div></li>
+          <li><div class="icon">10</div><div>Look for <strong>employment services</strong>. Your resettlement agency has job readiness, resume help, and job search support. American Job Centers also available. See directory.</div></li>
         </ul>
       </div>
       <div class="day-block">
-        <div class="day-label">◈ Week 2 — Build Stability</div>
+        <div class="day-label">◈ Week 2: Build Stability</div>
         <ul class="checklist">
-          <li><div class="icon">11</div><div>Open a <strong>bank account</strong>. Many banks accept an ITIN or foreign passport — call ahead to confirm. M&amp;T Bank and PNC have Baltimore branches with multilingual staff. Ask your caseworker for the most current option.</div></li>
+          <li><div class="icon">11</div><div>Open a <strong>bank account</strong>. Many banks accept an ITIN or foreign passport. Call ahead to confirm. M&amp;T Bank and PNC have Baltimore branches with multilingual staff. Ask your caseworker for the most current option.</div></li>
           <li><div class="icon">12</div><div>Apply for <strong>Maryland Medicaid</strong> if you haven't already. SIV holders, refugees, and asylees are generally eligible. Apply at <a href="https://mydhrbenefits.dhr.state.md.us" target="_blank">mydhrbenefits.dhr.state.md.us</a> or call 1-800-332-6347.</div></li>
-          <li><div class="icon">13</div><div>Confirm your children are <strong>registered and attending school</strong>. Follow up if you haven't received a start date — contact the school's main office or your caseworker.</div></li>
-          <li><div class="icon">14</div><div>Get a <strong>library card</strong> at Enoch Pratt — free, just bring your address. Unlocks free ebooks, language learning apps (Mango Languages), and computer time. → <a href="https://www.prattlibrary.org/get-a-card" target="_blank">prattlibrary.org/get-a-card</a></div></li>
+          <li><div class="icon">13</div><div>Confirm your children are <strong>registered and attending school</strong>. Follow up if you haven't received a start date. Contact the school's main office or your caseworker.</div></li>
+          <li><div class="icon">14</div><div>Get a <strong>library card</strong> at Enoch Pratt, free with just your address. Unlocks free ebooks, language learning apps (Mango Languages), and computer time. → <a href="https://www.prattlibrary.org/get-a-card" target="_blank">prattlibrary.org/get-a-card</a></div></li>
         </ul>
       </div>
       <div class="day-block">
-        <div class="day-label">◈ Weeks 3–4 — Move Forward</div>
+        <div class="day-label">◈ Weeks 3 to 4: Move Forward</div>
         <ul class="checklist">
-          <li><div class="icon">15</div><div>Attend your first <strong>English class</strong> if you haven't started yet. BCCC Refugee and Asylum Programs offers MORA-funded ELT (free for eligible newcomers). → <a href="https://www.bccc.edu/academics/english-language-services-basic-skills/refugee-assistance-program-rap" target="_blank">bccc.edu — RAP</a></div></li>
-          <li><div class="icon">16</div><div>If you are working with a caseworker, confirm your <strong>90-day plan</strong> — most resettlement contracts run 90 days and include employment goals, housing stability, and benefit enrollment. Know what yours covers.</div></li>
+          <li><div class="icon">15</div><div>Attend your first <strong>English class</strong> if you haven't started yet. BCCC Refugee and Asylum Programs offers MORA-funded ELT (free for eligible newcomers). → <a href="https://www.bccc.edu/academics/english-language-services-basic-skills/refugee-assistance-program-rap" target="_blank">bccc.edu, RAP</a></div></li>
+          <li><div class="icon">16</div><div>If you are working with a caseworker, confirm your <strong>90-day plan</strong>. Most resettlement contracts run 90 days and include employment goals, housing stability, and benefit enrollment. Know what yours covers.</div></li>
           <li><div class="icon">17</div><div>Connect with a <strong>community or cultural organization</strong> in Baltimore. For Afghan newcomers: The Salaam Center (410-385-4663) and ERICA serve Afghan and MENA communities. See directory below.</div></li>
-          <li><div class="icon">18</div><div>If you need legal help with your immigration status, contact <strong>PAIR Project</strong> or <strong>CLINIC</strong>-affiliated organizations in Baltimore. Ask your caseworker for a current referral — free legal services are available for eligible newcomers.</div></li>
+          <li><div class="icon">18</div><div>If you need legal help with your immigration status, contact <strong>PAIR Project</strong> or <strong>CLINIC</strong>-affiliated organizations in Baltimore. Ask your caseworker for a current referral. Free legal services are available for eligible newcomers.</div></li>
         </ul>
       </div>
     </div>
     <p class="verified-date">Sources: Baltimore City Welcome Guide (2023), MORA program pages, 211 Maryland, BCCC RAP. Last verified March 2026.</p>
   </div>
 </section>
-<!-- GET HELP NOW: DECISION TREE -->
 <section id="get-help">
   <div class="section-inner">
     <div class="section-label">Decision Tree</div>
     <h2>Who Do I Call?</h2>
-    <p class="section-intro">Not sure which number to use? Use this chart. Translation is available for all of these — just say "interpreter" or the name of your language when someone answers.</p>
+    <p class="section-intro">Not sure which number to use? Use this chart. Translation is available for all of these. Just say "interpreter" or the name of your language when someone answers.</p>
     <div class="decision-grid">
       <div class="decision-card red">
         <div class="decision-number">911</div>
@@ -657,7 +636,7 @@
         <ul>
           <li>Trash not picked up</li>
           <li>Streetlight is broken</li>
-          <li>City staff won't provide interpreter — you have the right to request one at no cost</li>
+          <li>City staff won't provide interpreter. You have the right to request one at no cost</li>
         </ul>
       </div>
       <div class="decision-card amber">
@@ -678,14 +657,12 @@
     </div>
   </div>
 </section>
-<!-- MICRO-GUIDES -->
 <section id="guides">
   <div class="section-inner">
     <div class="section-label">How-To Guides</div>
     <h2>Step-by-Step for Common Tasks</h2>
     <p class="section-intro">Click any guide to expand the steps. Every step links to an official source. Items marked <span style="background:#fff8ec;color:#7a5a20;font-size:0.75rem;font-weight:600;border:1px solid #f0ddb0;border-radius:4px;padding:0.1rem 0.4rem;">VERIFY</span> should be confirmed directly with the agency before you go.</p>
     <div class="guides-grid">
-      <!-- Transit -->
       <div class="guide-card">
         <div class="guide-card-header">
           <div class="guide-emoji">→</div>
@@ -696,13 +673,12 @@
         <div class="guide-card-steps">
           <ol>
             <li><strong>Plan your trip</strong> using the <a href="https://www.mta.maryland.gov/trip-planner" target="_blank">MTA Trip Planner</a> at mta.maryland.gov/trip-planner. Enter your start and end address.</li>
-            <li><strong>Pay with CharmPass</strong> — CharmCard is being phased out. Load CharmPass on your phone or buy at transit locations. <span class="verify">VERIFY</span> current fare amount at <a href="https://www.mta.maryland.gov" target="_blank">mta.maryland.gov</a>.</li>
-            <li>If you need help using the app, ask at an <strong>Enoch Pratt Library</strong> branch — staff can assist.</li>
+            <li><strong>Pay with CharmPass</strong>. CharmCard is being phased out. Load CharmPass on your phone or buy at transit locations. <span class="verify">VERIFY</span> current fare amount at <a href="https://www.mta.maryland.gov" target="_blank">mta.maryland.gov</a>.</li>
+            <li>If you need help using the app, ask at an <strong>Enoch Pratt Library</strong> branch. Staff can assist.</li>
             <li>For accessibility or paratransit needs, contact MTA directly through their website.</li>
           </ol>
         </div>
       </div>
-      <!-- School - City -->
       <div class="guide-card">
         <div class="guide-card-header">
           <div class="guide-emoji">✦</div>
@@ -715,11 +691,10 @@
             <li>Go to the <strong>Multilingual Enrollment and Support Center (MESC)</strong> at 200 E North Ave, Baltimore, MD 21202. Or start online: <a href="https://www.baltimorecityschools.org/enroll" target="_blank">baltimorecityschools.org/enroll</a></li>
             <li>Bring: proof of address, proof of age (birth certificate or passport), immunization records, and any prior school records you have. <span class="verify">VERIFY</span> full document list at enrollment page.</li>
             <li>Your child will receive an <strong>ESL assessment</strong> if English is not their first language.</li>
-            <li>If you are not sure which school is zoned for your address, MESC staff can help — interpretation is available.</li>
+            <li>If you are not sure which school is zoned for your address, MESC staff can help. Interpretation is available.</li>
           </ol>
         </div>
       </div>
-      <!-- School - County -->
       <div class="guide-card">
         <div class="guide-card-header">
           <div class="guide-emoji">✦</div>
@@ -730,31 +705,31 @@
         <div class="guide-card-steps">
           <ol>
             <li>Contact the <strong>Baltimore County Multilingual Welcome Center</strong> at 615 Frederick Rd, Catonsville, MD 21228. → <a href="https://www.bcps.org/curriculum/programsandoptions/multilingual_achievement/welcome_center" target="_blank">BCPS Welcome Center page</a></li>
-            <li>Schedule an appointment — walk-ins may not be accepted. <span class="verify">VERIFY</span> current hours.</li>
+            <li>Schedule an appointment. Walk-ins may not be accepted. <span class="verify">VERIFY</span> current hours.</li>
             <li>Bring: proof of address, proof of age, immunization records, prior school records.</li>
             <li>English language development <strong>screening</strong> will be conducted to determine placement.</li>
           </ol>
         </div>
       </div>
-      <!-- Refugee Health -->
+      <!-- Refugee Health — UPDATED: added Masjid An-Nur callout as step 6 -->
       <div class="guide-card">
         <div class="guide-card-header">
           <div class="guide-emoji">＋</div>
           <h3>Get a Refugee Health Screening</h3>
         </div>
-        <div class="guide-card-body">Free health assessment for eligible newcomers — do this early.</div>
+        <div class="guide-card-body">Free health assessment for eligible newcomers. Do this early.</div>
         <button class="guide-toggle" onclick="toggleGuide(this)">Show steps ↓</button>
         <div class="guide-card-steps">
           <ol>
             <li><strong>Who is eligible:</strong> Refugees, asylees, SIV holders, Afghan and Ukrainian humanitarian parolees, Cuban/Haitian entrants, and others. Check <a href="https://dhs.maryland.gov/maryland-office-for-refugees-and-asylees/who-is-eligible-for-benefits/" target="_blank">MORA eligibility page</a>.</li>
-            <li>Go to <strong>Baltimore Medical System — Highlandtown Healthy Living Center</strong>, 3700 Fleet Street, Suite 200, Baltimore, MD 21224.</li>
+            <li>Go to <strong>Baltimore Medical System, Highlandtown Healthy Living Center</strong>, 3700 Fleet Street, Suite 200, Baltimore, MD 21224.</li>
             <li>Call ahead to schedule: <a href="https://bmsi.org/our-programs/the-refugee-health-program/" target="_blank">bmsi.org</a>. <span class="verify">VERIFY</span> current phone number and hours.</li>
             <li>Bring your immigration documents and any medical records you have.</li>
             <li>After your screening, the clinic can connect you to ongoing primary care.</li>
+            <li>If you have lost your insurance, Masjid An-Nur Community Health Center may be able to help. <span style="display:inline-block;background:#1a2e3b;color:#fff;padding:0.15rem 0.55rem;border-radius:4px;font-size:0.8rem;font-weight:700;letter-spacing:0.03em;">⚠ For uninsured patients only</span> Call (443) 478-8122 to request an appointment. Open Saturday and Sunday, 9:00 AM to 12:00 PM. → <a href="https://annurfoundation.org/health-clinic" target="_blank">annurfoundation.org/health-clinic</a></li>
           </ol>
         </div>
       </div>
-      <!-- ESL -->
       <div class="guide-card">
         <div class="guide-card-header">
           <div class="guide-emoji">Aa</div>
@@ -764,7 +739,7 @@
         <button class="guide-toggle" onclick="toggleGuide(this)">Show steps ↓</button>
         <div class="guide-card-steps">
           <ol>
-            <li><strong>If newly arrived refugee:</strong> Ask your caseworker first — they can enroll you in MORA-funded English Language Training (ELT) at no cost.</li>
+            <li><strong>If newly arrived refugee:</strong> Ask your caseworker first. They can enroll you in MORA-funded English Language Training (ELT) at no cost.</li>
             <li><strong>BCCC Refugee Assistance Program (RAP):</strong> Baltimore City Community College offers ESL for refugees. → <a href="https://www.bccc.edu/academics/english-language-services-basic-skills/refugee-assistance-program-rap" target="_blank">BCCC RAP page</a></li>
             <li><strong>Enoch Pratt Library:</strong> Free ESL classes at some branches, no caseworker required. → <a href="https://www.prattlibrary.org" target="_blank">prattlibrary.org</a></li>
             <li><strong>CASA Baltimore:</strong> ESOL classes, 2706 Pulaski Hwy. → <a href="https://wearecasa.org/esol-classes-in-baltimore/" target="_blank">wearecasa.org</a></li>
@@ -772,7 +747,6 @@
           </ol>
         </div>
       </div>
-      <!-- Internet/Phone -->
       <div class="guide-card">
         <div class="guide-card-header">
           <div class="guide-emoji">⌁</div>
@@ -785,11 +759,10 @@
             <li><strong>Free home wifi:</strong> <a href="https://www.projectwaves.net/waves-home-internet" target="_blank">Project Waves</a> offers free high-speed internet in select Baltimore City buildings. Ask your caseworker or building manager.</li>
             <li><strong>Low-cost internet + computers:</strong> <a href="https://www.pcsforpeople.org/locations/baltimore/" target="_blank">PCs for People</a>, 2901 E Biddle St, Baltimore. <span class="verify">VERIFY</span> current walk-in hours.</li>
             <li><strong>Free wifi + computers right now:</strong> Any Enoch Pratt Free Library branch. No ID required for wifi. → <a href="https://www.prattlibrary.org" target="_blank">prattlibrary.org</a></li>
-            <li>Ask your resettlement agency about <strong>Lifeline</strong> — a federal program for low-income phone plans.</li>
+            <li>Ask your resettlement agency about <strong>Lifeline</strong>, a federal program for low-income phone plans.</li>
           </ol>
         </div>
       </div>
-      <!-- Scam Avoidance -->
       <div class="guide-card">
         <div class="guide-card-header">
           <div class="guide-emoji">⚠</div>
@@ -806,7 +779,6 @@
           </ol>
         </div>
       </div>
-      <!-- Housing Search -->
       <div class="guide-card">
         <div class="guide-card-header">
           <div class="guide-emoji">⌂</div>
@@ -816,8 +788,8 @@
         <button class="guide-toggle" onclick="toggleGuide(this)">Show steps ↓</button>
         <div class="guide-card-steps">
           <ol>
-            <li><strong>Important note:</strong> There are no specialized housing programs specifically for new arrivals in Maryland. You will use general tools — this is the same for everyone.</li>
-            <li><strong>Search for housing:</strong> <a href="https://www.mdhousingsearch.org" target="_blank">MDHousingSearch.org</a> — free, bilingual call center support available.</li>
+            <li><strong>Important note:</strong> There are no specialized housing programs specifically for new arrivals in Maryland. You will use general tools. This is the same for everyone.</li>
+            <li><strong>Search for housing:</strong> <a href="https://www.mdhousingsearch.org" target="_blank">MDHousingSearch.org</a>, free with bilingual call center support.</li>
             <li><strong>Housing counseling (free):</strong> Southeast CDC, 3323 Eastern Ave, Suite 200, Baltimore. → <a href="https://www.southeastcdc.org/housing-counseling/" target="_blank">southeastcdc.org</a></li>
             <li><strong>Rental assistance:</strong> Baltimore City Community Action Partnership (CAP). → <a href="https://www.bmorechildren.com/cap" target="_blank">bmorechildren.com/cap</a></li>
             <li><strong>Renter rights &amp; eviction prevention:</strong> <a href="https://www.baltimorecity.gov/dhcd/our-work/resources-for-renters" target="_blank">Baltimore City DHCD renters page</a></li>
@@ -827,12 +799,11 @@
     </div>
   </div>
 </section>
-<!-- DIRECTORY -->
 <section id="directory">
   <div class="section-inner">
     <div class="section-label">Verified Directory</div>
     <h2>Key Organizations in Baltimore</h2>
-    <p class="section-intro">Curated from official sources. Addresses verified where possible — always call ahead. For a deeper search, use <a href="https://www.charmcare.org" target="_blank">CHARMcare.org</a>.</p>
+    <p class="section-intro">Curated from official sources. Addresses verified where possible. Always call ahead. For a deeper search, use <a href="https://www.charmcare.org" target="_blank">CHARMcare.org</a>.</p>
     <div class="directory-filters">
       <button class="filter-btn active" onclick="filterDir(this, 'all')">All</button>
       <button class="filter-btn" onclick="filterDir(this, 'services')">Resettlement</button>
@@ -846,7 +817,7 @@
     <div class="dir-grid" id="dirGrid">
       <div class="dir-card" data-cat="services">
         <div class="dir-card-top"><h3>IRC Baltimore</h3><span class="dir-tag tag-services">Resettlement</span></div>
-        <div class="dir-desc">International Rescue Committee — refugee resettlement and integration services for Baltimore metro.</div>
+        <div class="dir-desc">International Rescue Committee, providing refugee resettlement and integration services for Baltimore metro.</div>
         <div class="dir-meta">
           <span><span class="mi">📍</span> 2601 N Howard St, Suite 225, Baltimore, MD 21218</span>
           <span><span class="mi">🔗</span> <a href="https://www.rescue.org/united-states/baltimore-md" target="_blank">rescue.org/united-states/baltimore-md</a></span>
@@ -854,7 +825,7 @@
       </div>
       <div class="dir-card" data-cat="services">
         <div class="dir-card-top"><h3>LSSNCA Refugee &amp; Immigrant Services</h3><span class="dir-tag tag-services">Resettlement</span></div>
-        <div class="dir-desc">Lutheran Social Services — case management, mental health, and workforce support for refugees and SIV holders.</div>
+        <div class="dir-desc">Lutheran Social Services, offering case management, mental health, and workforce support for refugees and SIV holders.</div>
         <div class="dir-meta">
           <span><span class="mi">📍</span> 1730 Twin Springs Rd, Suite 213-214, Baltimore area</span>
           <span><span class="mi">🔗</span> <a href="https://lssnca.org/programs/refugee-and-immigrant-services/refugee-immigrant.html" target="_blank">lssnca.org</a></span>
@@ -869,10 +840,10 @@
         </div>
       </div>
       <div class="dir-card" data-cat="benefits">
-        <div class="dir-card-top"><h3>MORA — Maryland Office for Refugees &amp; Asylees</h3><span class="dir-tag tag-benefits">Benefits</span></div>
+        <div class="dir-card-top"><h3>MORA, Maryland Office for Refugees &amp; Asylees</h3><span class="dir-tag tag-benefits">Benefits</span></div>
         <div class="dir-desc">State office that sets eligibility for refugee programs: employment services, ELT, health screening, cash assistance. Most programs limited to first 5 years of eligible status.</div>
         <div class="dir-meta">
-          <span><span class="mi">🔗</span> <a href="https://dhs.maryland.gov/maryland-office-for-refugees-and-asylees/" target="_blank">dhs.maryland.gov — MORA</a></span>
+          <span><span class="mi">🔗</span> <a href="https://dhs.maryland.gov/maryland-office-for-refugees-and-asylees/" target="_blank">dhs.maryland.gov, MORA</a></span>
         </div>
       </div>
       <div class="dir-card" data-cat="benefits">
@@ -884,7 +855,7 @@
         </div>
       </div>
       <div class="dir-card" data-cat="health">
-        <div class="dir-card-top"><h3>Baltimore Medical System — Refugee Health</h3><span class="dir-tag tag-health">Health</span></div>
+        <div class="dir-card-top"><h3>Baltimore Medical System, Refugee Health</h3><span class="dir-tag tag-health">Health</span></div>
         <div class="dir-desc">Refugee health screening and ongoing primary care. Main MORA-listed Baltimore health access point.</div>
         <div class="dir-meta">
           <span><span class="mi">📍</span> 3700 Fleet St, Suite 200, Baltimore, MD 21224 (Highlandtown)</span>
@@ -906,9 +877,21 @@
           <span><span class="mi">📍</span> 421 Fallsway, Baltimore, MD 21202</span>
         </div>
       </div>
+      <!-- NEW ENTRY: Masjid An-Nur Community Health Center -->
+      <div class="dir-card" data-cat="health">
+        <div class="dir-card-top"><h3>Masjid An-Nur Community Health Center</h3><span class="dir-tag tag-health">Health</span></div>
+        <div class="dir-desc">Clinic operated at Masjid An-Nur mosque by volunteer physicians.</div>
+        <div style="margin:0.4rem 0 0.6rem;padding:0.4rem 0.7rem;background:#1a2e3b;color:#fff;border-radius:5px;font-size:0.85rem;font-weight:700;letter-spacing:0.03em;display:inline-block;">⚠ For uninsured patients only</div>
+        <div class="dir-meta">
+          <span><span class="mi">📍</span> 8020 Corporate Dr., Baltimore, MD 21236</span>
+          <span><span class="mi">🕐</span> Saturday and Sunday, 9:00 AM to 12:00 PM</span>
+          <span><span class="mi">📞</span> Call (443) 478-8122 to request an appointment. They will call you back.</span>
+          <span><span class="mi">🔗</span> <a href="https://annurfoundation.org/health-clinic" target="_blank">annurfoundation.org/health-clinic</a></span>
+        </div>
+      </div>
       <div class="dir-card" data-cat="education">
         <div class="dir-card-top"><h3>Baltimore City Schools MESC</h3><span class="dir-tag tag-education">Education</span></div>
-        <div class="dir-desc">Multilingual Enrollment and Support Center — school enrollment, ESL placement, and support for newly arrived families in Baltimore City.</div>
+        <div class="dir-desc">Multilingual Enrollment and Support Center, offering school enrollment, ESL placement, and support for newly arrived families in Baltimore City.</div>
         <div class="dir-meta">
           <span><span class="mi">📍</span> 200 E North Ave, Baltimore, MD 21202</span>
           <span><span class="mi">🔗</span> <a href="https://www.baltimorecityschools.org/enroll" target="_blank">baltimorecityschools.org/enroll</a></span>
@@ -919,21 +902,21 @@
         <div class="dir-desc">Baltimore County school enrollment and language support for newly arrived families.</div>
         <div class="dir-meta">
           <span><span class="mi">📍</span> 615 Frederick Rd, Catonsville, MD 21228</span>
-          <span><span class="mi">🔗</span> <a href="https://www.bcps.org/curriculum/programsandoptions/multilingual_achievement/welcome_center" target="_blank">bcps.org — Welcome Center</a></span>
+          <span><span class="mi">🔗</span> <a href="https://www.bcps.org/curriculum/programsandoptions/multilingual_achievement/welcome_center" target="_blank">bcps.org, Welcome Center</a></span>
         </div>
       </div>
       <div class="dir-card" data-cat="education">
         <div class="dir-card-top"><h3>BCCC Refugee Assistance Program (RAP)</h3><span class="dir-tag tag-education">ESL</span></div>
-        <div class="dir-desc">Baltimore City Community College — MORA-funded English language training and refugee support services.</div>
+        <div class="dir-desc">Baltimore City Community College, offering MORA-funded English language training and refugee support services.</div>
         <div class="dir-meta">
-          <span><span class="mi">🔗</span> <a href="https://www.bccc.edu/academics/english-language-services-basic-skills/refugee-assistance-program-rap" target="_blank">bccc.edu — RAP</a></span>
+          <span><span class="mi">🔗</span> <a href="https://www.bccc.edu/academics/english-language-services-basic-skills/refugee-assistance-program-rap" target="_blank">bccc.edu, RAP</a></span>
         </div>
       </div>
       <div class="dir-card" data-cat="education">
         <div class="dir-card-top"><h3>Enoch Pratt Free Library</h3><span class="dir-tag tag-education">ESL / Access</span></div>
         <div class="dir-desc">Free ESL classes, free wifi, computers, and a social worker on site. No agency affiliation needed. Open to all.</div>
         <div class="dir-meta">
-          <span><span class="mi">🔗</span> <a href="https://www.prattlibrary.org" target="_blank">prattlibrary.org</a> — find your nearest branch</span>
+          <span><span class="mi">🔗</span> <a href="https://www.prattlibrary.org" target="_blank">prattlibrary.org</a>, find your nearest branch</span>
         </div>
       </div>
       <div class="dir-card" data-cat="education">
@@ -945,7 +928,7 @@
         </div>
       </div>
       <div class="dir-card" data-cat="employment">
-        <div class="dir-card-top"><h3>American Job Centers — Baltimore City</h3><span class="dir-tag tag-employment">Employment</span></div>
+        <div class="dir-card-top"><h3>American Job Centers, Baltimore City</h3><span class="dir-tag tag-employment">Employment</span></div>
         <div class="dir-desc">Career center support, job search, and employment services. Three locations in Baltimore City.</div>
         <div class="dir-meta">
           <span><span class="mi">📍</span> Eastside: 3001 E Madison St | Northwest: 2401 Liberty Heights Ave (Mondawmin) | South: 1410 Bush St</span>
@@ -960,7 +943,7 @@
         </div>
       </div>
       <div class="dir-card" data-cat="housing">
-        <div class="dir-card-top"><h3>Southeast CDC — Housing Counseling</h3><span class="dir-tag tag-housing">Housing</span></div>
+        <div class="dir-card-top"><h3>Southeast CDC, Housing Counseling</h3><span class="dir-tag tag-housing">Housing</span></div>
         <div class="dir-desc">HUD-certified housing counseling for Baltimore City renters and homebuyers. Includes eviction prevention and rental counseling.</div>
         <div class="dir-meta">
           <span><span class="mi">📍</span> 3323 Eastern Ave, Suite 200, Baltimore, MD 21224</span>
@@ -975,7 +958,7 @@
         </div>
       </div>
       <div class="dir-card" data-cat="digital">
-        <div class="dir-card-top"><h3>PCs for People — Baltimore</h3><span class="dir-tag tag-digital">Internet</span></div>
+        <div class="dir-card-top"><h3>PCs for People, Baltimore</h3><span class="dir-tag tag-digital">Internet</span></div>
         <div class="dir-desc">Low-cost high-speed internet and refurbished computers for income-qualifying households.</div>
         <div class="dir-meta">
           <span><span class="mi">📍</span> 2901 E Biddle St, Baltimore, MD 21213 <span style="color:var(--amber);font-size:0.72rem;font-weight:600;">VERIFY</span></span>
@@ -983,59 +966,57 @@
         </div>
       </div>
     </div>
-    <p class="verified-date" style="margin-top:1.25rem;">Note: VERIFY addresses before visiting — they change. When in doubt, call ahead or check the organization's official website.</p>
+    <p class="verified-date" style="margin-top:1.25rem;">Note: VERIFY addresses before visiting. They change. When in doubt, call ahead or check the organization's official website.</p>
   </div>
 </section>
-<!-- OFFICIAL GUIDES -->
 <section id="official">
   <div class="section-inner">
     <div class="section-label">Official Sources</div>
     <h2>Official Guides &amp; Resources</h2>
-    <p class="section-intro">This site is a companion — not a replacement. These are the authoritative sources. Go here for full information.</p>
+    <p class="section-intro">This site is a companion, not a replacement. These are the authoritative sources. Go here for full information.</p>
     <div class="guides-list">
       <a class="guide-link-card" href="https://www.baltimorecity.gov/mima/welcome-to-baltimore-guide/download" target="_blank">
         <div class="guide-link-icon">PDF</div>
         <div class="guide-link-text">
-          <h3>Welcome to Baltimore Guide (2023) — Baltimore City</h3>
+          <h3>Welcome to Baltimore Guide (2023), Baltimore City</h3>
           <p>Official city guide from the Mayor's Office of Immigrant Affairs. Covers all services, rights, and resources. Available in English, Spanish, French, Chinese, Korean, and Arabic.</p>
         </div>
       </a>
       <a class="guide-link-card" href="https://dhs.maryland.gov/maryland-office-for-refugees-and-asylees/" target="_blank">
         <div class="guide-link-icon">GOV</div>
         <div class="guide-link-text">
-          <h3>MORA — Maryland Office for Refugees &amp; Asylees</h3>
+          <h3>MORA, Maryland Office for Refugees &amp; Asylees</h3>
           <p>Official state eligibility rules and program enrollment points. Best for: checking if you qualify for state-funded benefits and finding specific program enrollment locations.</p>
         </div>
       </a>
       <a class="guide-link-card" href="https://211md.org/resources/new-to-the-us-and-maryland/" target="_blank">
         <div class="guide-link-icon">211</div>
         <div class="guide-link-text">
-          <h3>211 Maryland — Immigration Help for New Marylanders</h3>
+          <h3>211 Maryland, Immigration Help for New Marylanders</h3>
           <p>Web version of 211's newcomer resources. ID, health, housing, legal, and more. 24/7 phone support in 150+ languages.</p>
         </div>
       </a>
       <a class="guide-link-card" href="https://refugeewelcome.org/state-resources/maryland/" target="_blank">
         <div class="guide-link-icon">ORG</div>
         <div class="guide-link-text">
-          <h3>Refugee Welcome Collective — Maryland Resources</h3>
+          <h3>Refugee Welcome Collective, Maryland Resources</h3>
           <p>Task-based statewide resource page covering cash/food, documentation, education, health, housing, legal, and more. Includes a local resource map.</p>
-          <p style="margin-top:0.5rem;font-size:0.8rem;color:#c94f3a;font-weight:600;">⚠ Note: This organization suspended operations in January 2025 due to a federal directive. Page may not be actively maintained — verify any information before acting on it.</p>
+          <p style="margin-top:0.5rem;font-size:0.8rem;color:#c94f3a;font-weight:600;">⚠ Note: This organization suspended operations in January 2025 due to a federal directive. Page may not be actively maintained. Verify any information before acting on it.</p>
         </div>
       </a>
       <a class="guide-link-card" href="https://www.charmcare.org" target="_blank">
         <div class="guide-link-icon">DIR</div>
         <div class="guide-link-text">
-          <h3>CHARMcare — Baltimore Services Directory</h3>
+          <h3>CHARMcare, Baltimore Services Directory</h3>
           <p>Comprehensive searchable directory for free and reduced-cost services in Baltimore City: food, housing, employment, health, education, and more.</p>
         </div>
       </a>
     </div>
   </div>
 </section>
-<!-- FOOTER -->
 <footer>
-  <p><strong>Baltimore Newcomer QuickStart</strong> — A companion to official resources. Not affiliated with any government agency.</p>
-  <p>Informational only. Not legal advice. Services and eligibility change — verify with agencies directly before acting.</p>
+  <p><strong>Baltimore Newcomer QuickStart</strong>. A companion to official resources. Not affiliated with any government agency.</p>
+  <p>Informational only. Not legal advice. Services and eligibility change. Verify with agencies directly before acting.</p>
   <p>To report an outdated link or incorrect information, email <a href="mailto:1031M.Talha@gmail.com">1031M.Talha@gmail.com</a>. Last reviewed: March 2026.</p>
   <p style="margin-top:1rem;">Built for the Afghan SIV and newcomer community in Baltimore City &amp; County.</p>
 </footer>
@@ -1069,12 +1050,10 @@
   }
 
   function setLang(lang) {
-    // Update active state on lang tags
     document.querySelectorAll('.lang-tag').forEach(t => t.classList.remove('active-lang'));
     event.target.classList.add('active-lang');
 
     if (lang === 'en') {
-      // Remove translation — reload without googtrans cookie
       document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
       document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + location.hostname;
       document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.' + location.hostname;
@@ -1082,7 +1061,6 @@
       return;
     }
 
-    // Try using the Google Translate widget dropdown directly
     var select = document.querySelector('.goog-te-combo');
     if (select) {
       select.value = lang;
@@ -1090,7 +1068,6 @@
       return;
     }
 
-    // Fallback: set cookie and reload
     document.cookie = 'googtrans=/en/' + lang + '; path=/';
     document.cookie = 'googtrans=/en/' + lang + '; path=/; domain=.' + location.hostname;
     location.reload();
