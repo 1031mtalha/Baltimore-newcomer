@@ -10,6 +10,16 @@
     document.cookie = gone + ' domain=.' + host;
   }
 
+  // Shareable links such as baltimorenewcomer.org/?lang=ps
+  var wanted = new URLSearchParams(location.search).get('lang');
+  if (wanted && /^(ar|fa|fr|ps|es|uk|so|ti)$/.test(wanted)) {
+    document.cookie = 'googtrans=/en/' + wanted + '; path=/';
+    document.cookie = 'googtrans=/en/' + wanted + '; path=/; domain=.' + host;
+    history.replaceState(null, '', location.pathname + location.hash);
+    location.reload();
+    return;
+  }
+
   document.addEventListener('click', function (e) {
     var link = e.target.closest('[data-gtlang]');
     if (!link) return;

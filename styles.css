@@ -491,7 +491,7 @@ a { color: inherit; }
 
 /* Language links and translation notice */
 .hero-langs a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
-.hero-langs [aria-current] { color: var(--text-secondary); font-weight: 600; }
+.hero-langs [aria-current] { color: var(--text-secondary); font-weight: 600; text-decoration: none; }
 .hero-langs .lang-links { display: inline-block; margin-bottom: 6px; font-size: 14px; }
 .translation-notice {
   background: var(--disclaimer-bg);
@@ -526,5 +526,41 @@ a { color: inherit; }
   box-shadow: 0 2px 12px rgba(0,0,0,0.15);
   border: 1px solid #ddd;
 }
-body { top: 0 !important; }
-.goog-te-banner-frame { display: none !important; }
+/* Hide Google's injected top bar and hover popups; the English link restores the page */
+body { top: 0 !important; position: static !important; }
+.goog-te-banner-frame, iframe.skiptranslate, .VIpgJd-ZVi9od-ORHb-OEVmcd { display: none !important; }
+#goog-gt-tt, .goog-tooltip, .goog-tooltip:hover { display: none !important; }
+.goog-text-highlight { background: none !important; box-shadow: none !important; }
+
+/* Languages section */
+.lang-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+}
+.lang-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  height: 100%;
+  padding: 14px 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--paper-border);
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--paper-ink);
+}
+.lang-card:hover, .lang-card:focus-visible { border-color: var(--eyebrow); }
+.lang-card[aria-current] { border-color: var(--eyebrow); }
+.lang-native { font-size: 20px; font-weight: 600; line-height: 1.4; }
+.lang-english { font-size: 13px; color: var(--paper-muted); }
+.lang-note { font-size: 12px; color: var(--paper-muted); margin-top: 4px; line-height: 1.4; }
+.lang-card[lang="ti"] .lang-native, .lang-links [lang="ti"] { font-family: 'Noto Sans Ethiopic', sans-serif; }
+.lang-card[lang="ar"] .lang-native, .lang-card[lang="ps"] .lang-native, .lang-card[lang="fa-AF"] .lang-native,
+.lang-links [lang="ar"], .lang-links [lang="ps"], .lang-links [lang="fa-AF"] { font-family: 'Noto Naskh Arabic', 'Noto Sans Arabic', Tahoma, sans-serif; }
+
+/* Keep each language name in its own bidi run so neighbours never swap order */
+.lang-links a, .lang-links span { unicode-bidi: isolate; }
