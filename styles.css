@@ -488,3 +488,27 @@ a { color: inherit; }
 .source-card h3 { font-size: 16px; margin-bottom: 8px; color: var(--paper-ink); }
 .source-card p { font-size: 13.5px; color: var(--paper-muted); line-height: 1.5; }
 .source-note { color: var(--accent-2-text) !important; font-weight: 600; margin-top: 6px; }
+
+/* Language links and translation notice */
+.hero-langs a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.hero-langs [aria-current] { color: var(--text-secondary); font-weight: 600; }
+.hero-langs .lang-links { display: inline-block; margin-bottom: 6px; font-size: 14px; }
+.translation-notice {
+  background: var(--disclaimer-bg);
+  color: var(--paper-ink);
+  border-bottom: 1px solid var(--disclaimer-border);
+  font-size: 13.5px;
+  line-height: 1.6;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+/* Right-to-left languages (Dari, Pashto, Arabic) */
+[dir="rtl"] body { font-family: 'Noto Naskh Arabic', 'Noto Sans Arabic', Tahoma, 'Segoe UI', sans-serif; line-height: 1.85; }
+[dir="rtl"] * { letter-spacing: 0 !important; text-transform: none !important; }
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] .decision-number { font-family: inherit; }
+[dir="rtl"] .decision-card ul { padding-left: 0; padding-right: 18px; }
+[dir="rtl"] .rights-callout { border-left: 1px solid var(--paper-border); border-right: 4px solid var(--accent-2); }
+[dir="rtl"] .guide-toggle { text-align: right; }
+[dir="rtl"] .org-new { right: auto; left: 18px; }
+[dir="rtl"] h1 { text-wrap: balance; line-height: 1.5; }

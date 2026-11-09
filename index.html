@@ -8,6 +8,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <!-- i18n:alternates:start -->
+  <link rel="alternate" hreflang="en" href="./">
+  <link rel="alternate" hreflang="fa-AF" href="fa/">
+    <!-- i18n:alternates:end -->
   <script>
     (function () {
       var stored = localStorage.getItem('theme');
@@ -39,7 +43,9 @@
       <a class="cta-primary" href="#first-30-days">Start Here</a>
       <br>
       <a class="cta-link" href="#get-help">Get Help Now</a>
-      <p class="hero-langs">This page is in English. For help in your language, call 211 and ask for an interpreter, or use your browser's translate feature.</p>
+      <!-- i18n:langs:start -->
+      <p class="hero-langs"><span class="lang-links"><span aria-current="true">English</span> &middot; <a href="fa/" hreflang="fa-AF" lang="fa-AF">دری</a></span><br>For help in your language, call 211 and ask for an interpreter, or use your browser's translate feature.</p>
+    <!-- i18n:langs:end -->
     </section>
 
     <p class="disclaimer-bar">Informational only. Not legal advice. Services and eligibility change. Always verify with the official agency directly. Last reviewed: March 2026.</p>

@@ -8,7 +8,8 @@ function initGuides() {
     toggle.addEventListener('click', () => {
       guide.classList.toggle('is-open');
       const label = toggle.querySelector('.guide-toggle-label');
-      label.textContent = guide.classList.contains('is-open') ? 'Hide steps' : 'Show steps';
+      const d = document.documentElement.dataset;
+      label.textContent = guide.classList.contains('is-open') ? (d.hideSteps || 'Hide steps') : (d.showSteps || 'Show steps');
     });
   });
 }
@@ -41,7 +42,8 @@ function initThemeToggle() {
 
   function syncLabel() {
     const isDark = root.getAttribute('data-theme') === 'dark';
-    toggle.textContent = isDark ? 'Light mode' : 'Dark mode';
+    const d = root.dataset;
+    toggle.textContent = isDark ? (d.lightLabel || 'Light mode') : (d.darkLabel || 'Dark mode');
     toggle.setAttribute('aria-pressed', String(isDark));
   }
 
