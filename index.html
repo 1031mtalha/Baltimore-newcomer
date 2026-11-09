@@ -8,6 +8,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <!-- i18n:alternates:start -->
+  <link rel="alternate" hreflang="en" href="./">
+  <link rel="alternate" hreflang="fa-AF" href="fa/">
+    <!-- i18n:alternates:end -->
   <script>
     (function () {
       var stored = localStorage.getItem('theme');
@@ -39,7 +43,9 @@
       <a class="cta-primary" href="#first-30-days">Start Here</a>
       <br>
       <a class="cta-link" href="#get-help">Get Help Now</a>
-      <p class="hero-langs">Read in: English &middot; دری &middot; پښتو &middot; Español &middot; العربية &middot; Français</p>
+      <!-- i18n:langs:start -->
+      <p class="hero-langs"><span class="lang-links"><span aria-current="true">English</span> &middot; <a href="fa/" hreflang="fa-AF" lang="fa-AF">دری</a> &middot; <a href="#" data-gtlang="ps" lang="ps" class="notranslate">پښتو</a> &middot; <a href="#" data-gtlang="es" lang="es" class="notranslate">Español</a> &middot; <a href="#" data-gtlang="ar" lang="ar" class="notranslate">العربية</a> &middot; <a href="#" data-gtlang="fr" lang="fr" class="notranslate">Français</a></span><br>Automatic translation can contain errors. For an interpreter, call 211 and ask for your language.</p>
+    <!-- i18n:langs:end -->
     </section>
 
     <p class="disclaimer-bar">Informational only. Not legal advice. Services and eligibility change. Always verify with the official agency directly. Last reviewed: March 2026.</p>
@@ -488,5 +494,9 @@
   </footer>
 
   <script src="script.js"></script>
+  <!-- i18n:widget:start -->
+  <div id="google_translate_element" class="gt-box"></div>
+  <script src="translate.js"></script>
+  <!-- i18n:widget:end -->
 </body>
 </html>
