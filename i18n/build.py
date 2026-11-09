@@ -35,7 +35,16 @@ EMAIL = re.compile(r"[\w.+-]+@[\w-]+\.[\w.-]+")
 FOREIGN_DIGITS = re.compile("[٠-٩۰-۹]")
 EN_HERO_LINE = "Automatic translation can contain errors. For an interpreter, call 211 and ask for your language."
 # Languages served by the Google widget until a reviewed static page exists for them
-GT_LANGS = [("ps", "پښتو"), ("es", "Español"), ("ar", "العربية"), ("fr", "Français")]
+# (code, native name, English name)
+GT_LANGS = [
+    ("ps", "پښتو", "Pashto"),
+    ("es", "Español", "Spanish"),
+    ("ar", "العربية", "Arabic"),
+    ("fr", "Français", "French"),
+    ("uk", "Українська", "Ukrainian"),
+    ("so", "Soomaali", "Somali"),
+    ("ti", "ትግርኛ", "Tigrinya"),
+]
 EN_NAME = "English"
 
 SKIP_TAGS = {"script", "style", "head", "title"}
@@ -64,7 +73,8 @@ def find_blocks(soup):
         for child in parent.children:
             if not isinstance(child, Tag) or child.name in SKIP_TAGS:
                 continue
-            if child.get("id") == "theme-toggle" or "hero-langs" in (child.get("class") or []):
+            if (child.get("id") == "theme-toggle" or "hero-langs" in (child.get("class") or [])
+                    or child.get("data-i18n") == "skip"):
                 continue
             if is_block(child):
                 text = norm(child.get_text())
@@ -155,11 +165,21 @@ def lang_files():
     return sorted(p for p in I18N.glob("*.json"))
 
 
+def gt_link(code: str, native: str, rel_prefix: str, in_place: bool) -> str:
+    """Link to a language served by the Google widget on the English page.
+
+    href="?lang=xx" works everywhere (shareable, and from translated pages);
+    data-gtlang lets the English page switch in place without a reload.
+    """
+    extra = f' data-gtlang="{code}"' if in_place else ""
+    return f'<a href="{rel_prefix}?lang={code}"{extra} lang="{code}" class="notranslate">{native}</a>'
+
+
 def lang_bar(current: str, langs: dict, rel_prefix: str, sentence: str) -> str:
     """Language links. rel_prefix is '' on the English page and '../' on translated ones."""
     parts = []
     if current == "en":
-        parts.append(f'<span aria-current="true">{EN_NAME}</span>')
+        parts.append('<a href="./" data-gtlang="en" hreflang="en" lang="en" class="notranslate" aria-current="true">English</a>')
     else:
         parts.append(f'<a href="{rel_prefix or "./"}" hreflang="en" lang="en">{EN_NAME}</a>')
     for code, meta in langs.items():
@@ -167,13 +187,38 @@ def lang_bar(current: str, langs: dict, rel_prefix: str, sentence: str) -> str:
             parts.append(f'<span aria-current="true" lang="{meta["lang"]}">{meta["name"]}</span>')
         else:
             href = f"{rel_prefix}{code}/"
-            parts.append(f'<a href="{href}" hreflang="{meta["lang"]}" lang="{meta["lang"]}">{meta["name"]}</a>')
-    if current == "en":
-        for code, name in GT_LANGS:
-            if code not in langs:
-                parts.append(f'<a href="#" data-gtlang="{code}" lang="{code}" class="notranslate">{name}</a>')
+            parts.append(f'<a href="{href}" hreflang="{meta["lang"]}" lang="{meta["lang"]}" class="notranslate">{meta["name"]}</a>')
+    for code, native, _english in GT_LANGS:
+        if code not in langs:
+            parts.append(gt_link(code, native, rel_prefix, in_place=(current == "en")))
     links = " &middot; ".join(parts)
-    return f'<p class="hero-langs"><span class="lang-links">{links}</span><br>{sentence}</p>'
+    return (f'<p class="hero-langs"><span class="lang-links" translate="no">{links}</span>'
+            f'<br>{sentence}</p>')
+
+
+def lang_grid(langs: dict) -> str:
+    """Card grid for the Languages section on the English page."""
+    cards = [
+        '<li><a class="lang-card" href="./" data-gtlang="en" hreflang="en" lang="en" aria-current="true">'
+        '<span class="lang-native">English</span><span class="lang-english">English</span>'
+        '<span class="lang-note">Original page</span></a></li>'
+    ]
+    for code, meta in langs.items():
+        cards.append(
+            f'<li><a class="lang-card" href="{code}/" hreflang="{meta["lang"]}" lang="{meta["lang"]}">'
+            f'<span class="lang-native">{meta["name"]}</span><span class="lang-english">{meta.get("english_name", meta["name"])}</span>'
+            f'<span class="lang-note">{meta.get("card_note", "Translated page")}</span></a></li>'
+        )
+    for code, native, english in GT_LANGS:
+        if code in langs:
+            continue
+        cards.append(
+            f'<li><a class="lang-card" href="?lang={code}" data-gtlang="{code}" lang="{code}">'
+            f'<span class="lang-native">{native}</span><span class="lang-english">{english}</span>'
+            f'<span class="lang-note">Automatic translation</span></a></li>'
+        )
+    body = "\n          ".join(cards)
+    return f'<ul class="lang-grid" translate="no">\n          {body}\n        </ul>'
 
 
 def alternates(langs: dict, rel_prefix: str) -> str:
@@ -259,6 +304,8 @@ def build(check_only: bool) -> int:
             soup.head.append(BeautifulSoup(f'<link href="{meta["font_url"]}" rel="stylesheet">', "html.parser"))
         notice = BeautifulSoup(f'<p class="translation-notice" role="note">{meta["notice"]}</p>', "html.parser")
         soup.find("header", class_="site-header").insert_after(notice)
+        for el in soup.find_all(attrs={"data-i18n": "skip"}):
+            el.decompose()
         for el in soup.find_all(id="google_translate_element"):
             el.decompose()
         for el in soup.find_all("script", src="translate.js"):
@@ -277,6 +324,7 @@ def build(check_only: bool) -> int:
 
     patched = patch_markers(source_text, "alternates", alternates(langs, ""))
     patched = patch_markers(patched, "langs", "      " + lang_bar("en", langs, "", EN_HERO_LINE))
+    patched = patch_markers(patched, "langgrid", "      " + lang_grid(langs))
     if patched != source_text:
         SOURCE.write_text(patched, encoding="utf-8")
         print("updated language links in index.html")
