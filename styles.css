@@ -512,3 +512,19 @@ a { color: inherit; }
 [dir="rtl"] .guide-toggle { text-align: right; }
 [dir="rtl"] .org-new { right: auto; left: 18px; }
 [dir="rtl"] h1 { text-wrap: balance; line-height: 1.5; }
+
+/* Google Website Translator box (English page only) */
+.gt-box {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 999;
+  background: #fff;
+  color: #222;
+  border-radius: 8px;
+  padding: 0.4rem 0.7rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  border: 1px solid #ddd;
+}
+body { top: 0 !important; }
+.goog-te-banner-frame { display: none !important; }

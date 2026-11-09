@@ -33,7 +33,9 @@ LETTER = re.compile(r"[^\W\d_]")
 URLISH = re.compile(r"[A-Za-z0-9][A-Za-z0-9\-]*(?:\.[A-Za-z0-9\-]+)*\.(?:org|gov|edu|net|com|us)(?:/[\w\-./?=&%#]*[\w\-/?=&%#])?")
 EMAIL = re.compile(r"[\w.+-]+@[\w-]+\.[\w.-]+")
 FOREIGN_DIGITS = re.compile("[٠-٩۰-۹]")
-EN_HERO_LINE = "For help in your language, call 211 and ask for an interpreter, or use your browser's translate feature."
+EN_HERO_LINE = "Automatic translation can contain errors. For an interpreter, call 211 and ask for your language."
+# Languages served by the Google widget until a reviewed static page exists for them
+GT_LANGS = [("ps", "پښتو"), ("es", "Español"), ("ar", "العربية"), ("fr", "Français")]
 EN_NAME = "English"
 
 SKIP_TAGS = {"script", "style", "head", "title"}
@@ -166,6 +168,10 @@ def lang_bar(current: str, langs: dict, rel_prefix: str, sentence: str) -> str:
         else:
             href = f"{rel_prefix}{code}/"
             parts.append(f'<a href="{href}" hreflang="{meta["lang"]}" lang="{meta["lang"]}">{meta["name"]}</a>')
+    if current == "en":
+        for code, name in GT_LANGS:
+            if code not in langs:
+                parts.append(f'<a href="#" data-gtlang="{code}" lang="{code}" class="notranslate">{name}</a>')
     links = " &middot; ".join(parts)
     return f'<p class="hero-langs"><span class="lang-links">{links}</span><br>{sentence}</p>'
 
@@ -253,6 +259,10 @@ def build(check_only: bool) -> int:
             soup.head.append(BeautifulSoup(f'<link href="{meta["font_url"]}" rel="stylesheet">', "html.parser"))
         notice = BeautifulSoup(f'<p class="translation-notice" role="note">{meta["notice"]}</p>', "html.parser")
         soup.find("header", class_="site-header").insert_after(notice)
+        for el in soup.find_all(id="google_translate_element"):
+            el.decompose()
+        for el in soup.find_all("script", src="translate.js"):
+            el.decompose()
         hero = soup.find("p", class_="hero-langs")
         hero.replace_with(BeautifulSoup(lang_bar(code, langs, "../", meta["hero_line"]), "html.parser"))
         if meta["dir"] == "rtl":
