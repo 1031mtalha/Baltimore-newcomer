@@ -21,9 +21,8 @@ jobs:
             --verbose --no-progress
             --max-concurrency 4 --timeout 30 --max-retries 2
             --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
-            --exclude-mail
             index.html
-          format: markdown
+          format: detailed
           output: lychee-report.md
           jobSummary: true
           fail: false
