@@ -564,3 +564,40 @@ body { top: 0 !important; position: static !important; }
 
 /* Keep each language name in its own bidi run so neighbours never swap order */
 .lang-links a, .lang-links span { unicode-bidi: isolate; }
+
+/* City or County lookup */
+.lookup-form label { display: block; font-weight: 600; margin-bottom: 6px; }
+.lookup-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.lookup-row input {
+  flex: 1 1 240px; min-width: 0; padding: 12px 14px; font: inherit; font-size: 16px;
+  border: 1px solid var(--paper-border); border-radius: 8px; background: var(--card-bg); color: var(--paper-ink);
+}
+.lookup-row button {
+  padding: 12px 20px; font: inherit; font-weight: 600; border: 0; border-radius: 8px;
+  background: var(--accent); color: var(--accent-ink); cursor: pointer;
+}
+.lookup-row button:disabled { opacity: 0.6; cursor: wait; }
+.lookup-result:empty { display: none; }
+.lookup-result {
+  margin-top: 14px; padding: 14px 16px; border-radius: 10px; border: 1px solid var(--paper-border);
+  background: var(--card-bg); color: var(--paper-ink); line-height: 1.5;
+}
+.lookup-result p { margin: 6px 0 0; }
+.lookup-result.is-city { border-left: 5px solid #b3502f; }
+.lookup-result.is-county { border-left: 5px solid var(--eyebrow); }
+.lookup-result.is-split, .lookup-result.is-outside { border-left: 5px solid var(--accent); }
+.lookup-matched { font-size: 13px; color: var(--paper-muted); }
+.lookup-note { font-size: 13px; color: var(--paper-muted); }
+.lookup-map {
+  height: 360px; margin-top: 14px; border-radius: 10px; border: 1px solid var(--paper-border); z-index: 0;
+}
+.lookup-privacy { font-size: 12px; color: var(--paper-muted); margin-top: 8px; }
+@media (max-width: 700px) {
+  .lookup-map { height: 280px; }
+  .lookup-row button { flex: 1 1 100%; }
+}
+
+/* On phones the floating translate box covered page text; put it at the end of the page instead */
+@media (max-width: 700px) {
+  .gt-box { position: static; display: inline-block; margin: 16px; box-shadow: none; }
+}

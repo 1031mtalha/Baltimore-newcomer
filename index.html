@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" data-i18n="skip">
   <link rel="stylesheet" href="styles.css">
   <!-- i18n:alternates:start -->
   <link rel="alternate" hreflang="en" href="./">
@@ -68,6 +69,22 @@
           <li><a class="lang-card" href="?lang=ti" data-gtlang="ti" lang="ti"><span class="lang-native">ትግርኛ</span><span class="lang-english">Tigrinya</span><span class="lang-note">Automatic translation</span></a></li>
         </ul>
     <!-- i18n:langgrid:end -->
+    </section>
+
+    <section id="lookup" class="content-section lookup-section" data-i18n="skip">
+      <p class="eyebrow-label">City or County?</p>
+      <h2>Find out which services you can use</h2>
+      <p class="section-intro">Baltimore City and Baltimore County are separate governments, and many services only serve one of them. Many County addresses still say "Baltimore, MD," so check yours here.</p>
+      <form id="lookup-form" class="lookup-form" autocomplete="on">
+        <label for="lookup-input">Street address or ZIP code</label>
+        <div class="lookup-row">
+          <input id="lookup-input" name="address" type="text" inputmode="text" placeholder="e.g. 100 Holliday St, Baltimore, MD 21202">
+          <button type="submit">Check</button>
+        </div>
+      </form>
+      <div id="lookup-result" class="lookup-result" role="status" aria-live="polite"></div>
+      <div id="lookup-map" class="lookup-map" aria-label="Map of Baltimore City and Baltimore County"></div>
+      <p class="lookup-privacy">Your address is sent to the U.S. Census Bureau's address lookup (and, if needed, OpenStreetMap) to find it. This site does not save it. A ZIP code alone is checked on this page.</p>
     </section>
 
     <section id="first-30-days" class="content-section">
@@ -515,6 +532,8 @@
   </footer>
 
   <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer data-i18n="skip"></script>
+  <script src="lookup.js" defer data-i18n="skip"></script>
   <!-- i18n:widget:start -->
   <div id="google_translate_element" class="gt-box"></div>
   <script src="translate.js"></script>
