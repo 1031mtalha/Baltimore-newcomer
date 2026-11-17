@@ -15,7 +15,7 @@
   var result = document.getElementById('lookup-result');
   var mapEl = document.getElementById('lookup-map');
 
-  var zips = null, bounds = null, map = null, marker = null;
+  var zips = null, bounds = null, map = null, marker = null, outline = null;
 
   var COUNTY_OFFICE = 'https://www.baltimorecountymd.gov/departments/county-executive/immigrant-affairs';
   var CITY_OFFICE = 'https://www.baltimorecity.gov/mima';
@@ -48,14 +48,15 @@
         l.bindTooltip(f.properties.GEOID === CITY ? 'Baltimore City' : 'Baltimore County', { sticky: true });
       }
     }).addTo(map);
-    map.fitBounds(layer.getBounds());
+    outline = layer.getBounds();
+    map.fitBounds(outline);
   }
 
   function showPoint(lat, lon) {
     if (!map) return;
     if (marker) marker.remove();
     marker = L.circleMarker([lat, lon], { radius: 9, color: '#ffffff', weight: 3, fillColor: '#0c2634', fillOpacity: 1 }).addTo(map);
-    map.setView([lat, lon], 13);
+    map.setView([lat, lon], 12);
   }
 
   function say(html, kind) {
@@ -89,7 +90,13 @@
     });
   }
 
+  function resetMap() {
+    if (marker) { marker.remove(); marker = null; }
+    if (map && outline) map.fitBounds(outline);
+  }
+
   function checkZip(zip) {
+    resetMap();
     var d = zips[zip];
     var city = d && d[CITY] || 0, county = d && d[COUNTY] || 0;
     if (!d) return say('<strong>ZIP ' + zip + ' is outside Baltimore City and Baltimore County.</strong><p>Call or text 211 to find services where you live.</p>', 'outside');
