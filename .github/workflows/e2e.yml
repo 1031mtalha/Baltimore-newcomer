@@ -1,0 +1,38 @@
+name: Lookup end-to-end
+on:
+  push:
+    branches: [district-lookup-e2e]
+permissions:
+  contents: write
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install playwright==1.48.0 && python -m playwright install --with-deps chromium
+      - run: |
+          python -m http.server 8765 >/dev/null 2>&1 &
+          sleep 2
+          cat > t.py <<'PY'
+          from playwright.sync_api import sync_playwright
+          cases=["100 Holliday St, Baltimore, MD 21202","400 Washington Ave, Towson, MD 21204","1100 Mace Ave, Essex, MD 21221","21212","21234"]
+          with sync_playwright() as p:
+              b=p.chromium.launch()
+              for vp,name in [((1280,900),'desk'),((390,844),'phone')]:
+                  pg=b.new_page(viewport={'width':vp[0],'height':vp[1]},device_scale_factor=2)
+                  errs=[]; pg.on('pageerror',lambda e:errs.append(str(e)))
+                  pg.goto('http://localhost:8765/'); pg.wait_for_timeout(3000)
+                  for c in (cases if name=='desk' else cases[:1]):
+                      pg.fill('#lookup-input',c); pg.click('#lookup-form button')
+                      pg.wait_for_function("document.querySelector('#lookup-result').innerText && !document.querySelector('#lookup-result').innerText.startsWith('Looking')", timeout=20000)
+                      print(name,'|',c,'=>',pg.inner_text('#lookup-result').replace('\n',' / ')[:230])
+                  pg.wait_for_timeout(2500)
+                  pg.locator('#lookup').scroll_into_view_if_needed()
+                  pg.locator('#lookup').screenshot(path=f'shots/{name}.png')
+                  print(name,'errors',errs,'scrollWidth',pg.evaluate('document.documentElement.scrollWidth'))
+              b.close()
+          PY
+          mkdir -p shots && python t.py
+      - run: |
+          git config user.name github-actions; git config user.email github-actions@users.noreply.github.com
+          git add shots && git commit -m "e2e screenshots" && git push
