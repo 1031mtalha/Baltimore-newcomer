@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: pip install playwright==1.48.0 && python -m playwright install --with-deps chromium
+      - run: pip install --break-system-packages playwright && python -m playwright install --with-deps chromium
       - run: |
           python -m http.server 8765 >/dev/null 2>&1 &
           sleep 2
