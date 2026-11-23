@@ -454,6 +454,21 @@ a { color: inherit; }
   border-radius: 5px;
 }
 
+/* Who can use a listing: City, County, both, or statewide */
+.org-area {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  margin: 0 0 8px 8px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--paper-border);
+  color: var(--paper-muted);
+}
+.org-area-city { border-color: var(--accent-2-text); color: var(--accent-2-text); }
+.org-area-county { border-color: var(--eyebrow); color: var(--eyebrow); }
+[dir="rtl"] .org-area { margin: 0 8px 8px 0; }
+
 .org-card h3 { font-size: 16px; margin-bottom: 8px; }
 .org-card p { font-size: 13.5px; color: var(--paper-muted); margin-bottom: 6px; line-height: 1.5; }
 .org-note { color: var(--accent-2-text) !important; font-weight: 600; }
