@@ -321,6 +321,7 @@
       <p class="eyebrow-label">Verified Directory</p>
       <h2>Key Organizations in Baltimore</h2>
       <p class="section-intro">Curated from official sources. Addresses verified where possible. Always call ahead. For a deeper search, use <a href="https://www.charmcare.org">CHARMcare.org</a>.</p>
+      <p class="section-intro">Each listing shows who can use it: Baltimore City only, Baltimore County only, City and County, or statewide. Many Baltimore County addresses still say "Baltimore, MD," so check which one you live in.</p>
 
       <div class="filter-bar">
         <button class="filter-btn is-active" data-filter="All" type="button">All</button>
@@ -334,42 +335,57 @@
       </div>
 
       <div class="org-grid">
-        <div class="org-card" data-org data-category="Resettlement">
+        <div class="org-card" data-org data-area="both" data-category="Resettlement">
           <span class="org-tag">Resettlement</span>
+          <span class="org-area org-area-both">City and County</span>
           <h3>IRC Baltimore</h3>
           <p>International Rescue Committee, providing refugee resettlement and integration services for Baltimore metro.</p>
           <p class="org-address">Address: 2601 N Howard St, Suite 225, Baltimore, MD 21218</p>
           <a href="https://www.rescue.org/united-states/baltimore-md">rescue.org/united-states/baltimore-md</a>
         </div>
-        <div class="org-card" data-org data-category="Resettlement">
+        <div class="org-card" data-org data-area="both" data-category="Resettlement">
           <span class="org-tag">Resettlement</span>
+          <span class="org-area org-area-both">City and County</span>
           <h3>LSSNCA Refugee &amp; Immigrant Services</h3>
           <p>Lutheran Social Services, offering case management, mental health, and workforce support for refugees and SIV holders.</p>
           <p class="org-address">Address: 1730 Twin Springs Rd, Suite 213-214, Baltimore area</p>
           <a href="https://lssnca.org/programs/refugee-and-immigrant-services/refugee-immigrant.html">lssnca.org</a>
         </div>
-        <div class="org-card" data-org data-category="Resettlement">
+        <div class="org-card" data-org data-area="city" data-category="Resettlement">
           <span class="org-tag">City Office</span>
+          <span class="org-area org-area-city">Baltimore City only</span>
           <h3>Baltimore City Mayor's Office of Immigrant Affairs</h3>
           <p>Publishes the official Baltimore newcomer guide and connects immigrants to city resources.</p>
           <p class="org-address">Address: 100 Holliday St, Baltimore, MD 21202</p>
           <a href="https://www.baltimorecity.gov/mima">baltimorecity.gov/mima</a>
         </div>
-        <div class="org-card" data-org data-category="Benefits">
+        <div class="org-card" data-org data-area="county" data-category="Resettlement">
+          <span class="org-tag">County Office</span>
+          <span class="org-area org-area-county">Baltimore County only</span>
+          <span class="org-new">New</span>
+          <h3>Baltimore County Immigrant Affairs</h3>
+          <p>Immigrant affairs staff in the Baltimore County Executive's office. Email them through their page to be connected with County resources and events.</p>
+          <p class="org-note">Note: contact is by email. No walk-in office or phone number is listed.</p>
+          <a href="https://baltimorecountymd.gov/departments/county-executive/immigrant-affairs">baltimorecountymd.gov, Immigrant Affairs</a>
+        </div>
+        <div class="org-card" data-org data-area="statewide" data-category="Benefits">
           <span class="org-tag">Benefits</span>
+          <span class="org-area org-area-statewide">Statewide</span>
           <h3>MORA, Maryland Office for Refugees &amp; Asylees</h3>
           <p>State office that sets eligibility for refugee programs: employment services, ELT, health screening, cash assistance. Most programs limited to first 5 years of eligible status.</p>
           <a href="https://dhs.maryland.gov/maryland-office-for-refugees-and-asylees/">dhs.maryland.gov, MORA</a>
         </div>
-        <div class="org-card" data-org data-category="Benefits">
+        <div class="org-card" data-org data-area="statewide" data-category="Benefits">
           <span class="org-tag">Referrals</span>
+          <span class="org-area org-area-statewide">Statewide</span>
           <h3>211 Maryland</h3>
           <p>24/7 statewide helpline. Translation in 150+ languages. Food, housing, health, legal, education referrals. Best first call for newcomers.</p>
           <p class="org-address">Phone: call or text 211</p>
           <a href="https://211md.org/resources/new-to-the-us-and-maryland/">211md.org</a>
         </div>
-        <div class="org-card" data-org data-category="Health">
+        <div class="org-card" data-org data-area="both" data-category="Health">
           <span class="org-tag">Health</span>
+          <span class="org-area org-area-both">City and County</span>
           <span class="org-new">New</span>
           <h3>Masjid An-Nur Community Health Center</h3>
           <p>Clinic operated at Masjid An-Nur mosque by volunteer physicians.</p>
@@ -379,87 +395,129 @@
           <p class="org-address">Phone: call (443) 478-8122 to request an appointment. They will call you back.</p>
           <a href="https://annurfoundation.org/health-clinic">annurfoundation.org/health-clinic</a>
         </div>
-        <div class="org-card" data-org data-category="Health">
+        <div class="org-card" data-org data-area="both" data-category="Health">
           <span class="org-tag">Health</span>
+          <span class="org-area org-area-both">City and County</span>
           <h3>Baltimore Medical System, Refugee Health</h3>
           <p>Refugee health screening and ongoing primary care. Main MORA-listed Baltimore health access point.</p>
           <p class="org-address">Address: 3700 Fleet St, Suite 200, Baltimore, MD 21224 (Highlandtown)</p>
           <a href="https://bmsi.org/our-programs/the-refugee-health-program/">bmsi.org</a>
         </div>
-        <div class="org-card" data-org data-category="Health">
+        <div class="org-card" data-org data-area="both" data-category="Health">
           <span class="org-tag">Health</span>
+          <span class="org-area org-area-both">City and County</span>
           <h3>Healthcare Access Maryland</h3>
           <p>Helps apply for subsidized health insurance and provides care coordination.</p>
           <p class="org-address">Address: 1 N Charles St, Suite 900, Baltimore, MD 21202</p>
           <a href="https://www.healthcareaccessmaryland.org">healthcareaccessmaryland.org</a>
         </div>
-        <div class="org-card" data-org data-category="Health">
+        <div class="org-card" data-org data-area="both" data-category="Health">
           <span class="org-tag">Health</span>
+          <span class="org-area org-area-both">City and County</span>
           <h3>Health Care for the Homeless</h3>
           <p>Medical care, mental health, dental, and wraparound supports. Good option if uninsured or without stable housing.</p>
           <p class="org-address">Address: 421 Fallsway, Baltimore, MD 21202</p>
+          <p class="org-address">Baltimore County clinic: 9150 Franklin Square Dr, Suite 301, Baltimore, MD 21237</p>
+          <a href="https://www.hchmd.org/hours-and-locations">hchmd.org, hours and locations</a>
         </div>
-        <div class="org-card" data-org data-category="Education">
+        <div class="org-card" data-org data-area="city" data-category="Education">
           <span class="org-tag">Education</span>
+          <span class="org-area org-area-city">Baltimore City only</span>
           <h3>Baltimore City Schools MESC</h3>
           <p>Multilingual Enrollment and Support Center, offering school enrollment, ESL placement, and support for newly arrived families in Baltimore City.</p>
           <p class="org-address">Address: 200 E North Ave, Baltimore, MD 21202</p>
           <a href="https://www.baltimorecityschools.org/enroll">baltimorecityschools.org/enroll</a>
         </div>
-        <div class="org-card" data-org data-category="Education">
+        <div class="org-card" data-org data-area="county" data-category="Education">
           <span class="org-tag">Education</span>
+          <span class="org-area org-area-county">Baltimore County only</span>
           <h3>BCPS Multilingual Welcome Center</h3>
           <p>English (ESOL) screening for Baltimore County students. Enrollment starts at the zoned school; if screening is recommended, call 443-809-6752 for an appointment.</p>
           <p class="org-address">Address: 615 Frederick Rd, Catonsville, MD 21228</p>
           <a href="https://www.bcps.org/curriculum/academics/esol_and_world_languages/esol/esol_welcome_center">bcps.org, Welcome Center</a>
         </div>
-        <div class="org-card" data-org data-category="Education">
+        <div class="org-card" data-org data-area="both" data-category="Education">
           <span class="org-tag">ESL</span>
+          <span class="org-area org-area-both">City and County</span>
           <h3>BCCC Refugee Assistance Program (RAP)</h3>
           <p>Baltimore City Community College, offering MORA-funded English language training and refugee support services.</p>
           <a href="https://www.bccc.edu/academics/english-language-services-basic-skills/refugee-assistance-program-rap">bccc.edu, RAP</a>
         </div>
-        <div class="org-card" data-org data-category="Education">
+        <div class="org-card" data-org data-area="statewide" data-category="Education">
           <span class="org-tag">ESL / Access</span>
+          <span class="org-area org-area-statewide">Statewide card, branches in the City</span>
           <h3>Enoch Pratt Free Library</h3>
           <p>Free ESL classes, free wifi, computers, and a social worker on site. No agency affiliation needed. Open to all.</p>
           <a href="https://www.prattlibrary.org">prattlibrary.org, find your nearest branch</a>
         </div>
-        <div class="org-card" data-org data-category="Education">
+        <div class="org-card" data-org data-area="county" data-category="Education">
+          <span class="org-tag">ESL / Access</span>
+          <span class="org-area org-area-county">Baltimore County only</span>
+          <span class="org-new">New</span>
+          <h3>Baltimore County Public Library, New American Welcome Centers</h3>
+          <p>Every branch has a New American Welcome Center with citizenship and English learning resources, legal information, and materials in many languages. Free interpreters at service desks. Free library card for County residents; immigration status is not required.</p>
+          <p class="org-note">Note: branches do not run regular English classes. For classes, see CCBC Adult ESOL.</p>
+          <a href="https://bcpl.info/services/new-american-services">bcpl.info, New American services</a>
+        </div>
+        <div class="org-card" data-org data-area="city" data-category="Education">
           <span class="org-tag">ESL</span>
+          <span class="org-area org-area-city">Baltimore City only</span>
           <h3>CASA Baltimore ESOL</h3>
           <p>ESOL classes and community services through the Baltimore Welcome Center.</p>
           <p class="org-address">Address: 2706 Pulaski Hwy, Baltimore, MD 21224</p>
           <a href="https://wearecasa.org/esol-classes-in-baltimore/">wearecasa.org</a>
         </div>
-        <div class="org-card" data-org data-category="Employment">
+        <div class="org-card" data-org data-area="county" data-category="Education">
+          <span class="org-tag">ESL</span>
+          <span class="org-area org-area-county">Baltimore County only</span>
+          <span class="org-new">New</span>
+          <h3>CCBC Adult ESOL</h3>
+          <p>Community College of Baltimore County. Beginning and intermediate English classes are tuition-free (state funded), with morning, afternoon, and evening options. For adults 18 and older who are not in high school.</p>
+          <p class="org-note">Note: register in person at a walk-in placement session. There is no phone or mail registration, and it can take 2 to 3 hours.</p>
+          <a href="https://www.ccbcmd.edu/Programs-and-Courses/Continuing-Education/Adult-Education/ESOL/index.html">ccbcmd.edu, ESOL</a>
+        </div>
+        <div class="org-card" data-org data-area="city" data-category="Employment">
           <span class="org-tag">Employment</span>
+          <span class="org-area org-area-city">Baltimore City only</span>
           <h3>American Job Centers, Baltimore City</h3>
           <p>Career center support, job search, and employment services. Three locations in Baltimore City.</p>
           <p class="org-address">Address: Eastside: 3001 E Madison St | Northwest: 2401 Liberty Heights Ave (Mondawmin) | South: 1410 Bush St</p>
           <a href="https://labor.maryland.gov/county/bacity/">labor.maryland.gov</a>
         </div>
-        <div class="org-card" data-org data-category="Housing">
+        <div class="org-card" data-org data-area="county" data-category="Employment">
+          <span class="org-tag">Employment</span>
+          <span class="org-area org-area-county">Baltimore County only</span>
+          <span class="org-new">New</span>
+          <h3>American Job Centers, Baltimore County</h3>
+          <p>Career center support, job search, and training services. Three locations in Baltimore County. Ask about interpreter services.</p>
+          <p class="org-address">Address: Eastpoint: 7930 Eastern Ave | Liberty Center: 3637 Offutt Rd, Randallstown | Hunt Valley: 11101 McCormick Rd, Suite 102</p>
+          <a href="https://labor.maryland.gov/county/baco/">labor.maryland.gov, Baltimore County</a>
+        </div>
+        <div class="org-card" data-org data-area="statewide" data-category="Housing">
           <span class="org-tag">Housing</span>
+          <span class="org-area org-area-statewide">Statewide</span>
           <h3>MDHousingSearch.org</h3>
           <p>Free online housing locator for Maryland with bilingual call center support. Start here for apartment searching.</p>
           <a href="https://www.mdhousingsearch.org">mdhousingsearch.org</a>
         </div>
-        <div class="org-card" data-org data-category="Housing">
+        <div class="org-card" data-org data-area="city" data-category="Housing">
           <span class="org-tag">Housing</span>
+          <span class="org-area org-area-city">Baltimore City only</span>
           <h3>Southeast CDC, Housing Counseling</h3>
           <p>HUD-certified housing counseling for Baltimore City renters and homebuyers. Includes eviction prevention and rental counseling.</p>
           <p class="org-address">Address: 3323 Eastern Ave, Suite 200, Baltimore, MD 21224</p>
           <a href="https://www.southeastcdc.org/housing-counseling/">southeastcdc.org</a>
         </div>
-        <div class="org-card" data-org data-category="Digital">
+        <div class="org-card" data-org data-area="city" data-category="Digital">
           <span class="org-tag">Internet</span>
+          <span class="org-area org-area-city">Baltimore City only</span>
           <h3>Project Waves</h3>
           <p>Free high-speed home internet for households in select Baltimore City buildings.</p>
           <a href="https://www.projectwaves.net/waves-home-internet">projectwaves.net</a>
         </div>
-        <div class="org-card" data-org data-category="Digital">
+        <div class="org-card" data-org data-area="both" data-category="Digital">
           <span class="org-tag">Internet</span>
+          <span class="org-area org-area-both">City and County</span>
           <h3>PCs for People, Baltimore</h3>
           <p>Low-cost high-speed internet and refurbished computers for income-qualifying households.</p>
           <p class="org-note">Note: verify before visiting</p>
